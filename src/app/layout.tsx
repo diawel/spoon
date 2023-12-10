@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className={`${inter.className} ${styles.container}`}>
         <div className={styles.display}>
           <div className={styles.inner}>{children}</div>
