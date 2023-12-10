@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  background-color: #eeeeee;
+}
+
+.display {
+  background-color: #ffffff;
+  height: 100%;
+
+  @media (min-width: 480px) {
+    width: 360px;
+    padding: 0 8px;
+  }
+}
+
+.inner {
+  height: 100%;
+  overflow-y: auto;
+
+  @media (min-width: 480px) {
+    border: 1px solid #eeeeee;
+  }
+}
