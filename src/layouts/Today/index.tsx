@@ -1,5 +1,7 @@
+import FinderView from './FinderView'
+
 const Today: React.FC = () => {
-  return <div>ここは/です</div>
+  return <FinderView />
 }
 
 export default Today
