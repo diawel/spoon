@@ -1,5 +1,3 @@
-import styles from './page.module.css'
+import Today from '@/layouts/Today'
 
-export default function Home() {
-  return <main className={styles.main}>ここは/です</main>
-}
+export default Today
