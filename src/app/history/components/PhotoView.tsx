@@ -1,14 +1,26 @@
+import Image from 'next/image'
 import React from 'react'
 import { PhotoViewProps } from '../types/PhotoViewProps'
+import styles from './PhotoView.module.css'
 
 const PhotoView: React.FC<PhotoViewProps> = ({ selectedElement }) => {
   return (
     <div>
       {selectedElement && (
         <div>
-          <p>Name: {selectedElement.name}</p>
-          <p>Color: {selectedElement.color}</p>
-          <p>Image: {selectedElement.photoUrl}</p>
+          <div className={styles.container}>
+            <div>
+              <Image
+                className={styles.photo}
+                src="/test.JPG"
+                width={275}
+                height={275}
+                alt="photo before ice cream"
+              />
+              <p className={styles.photo_name}>{selectedElement.name}</p>
+            </div>
+            {/* <Image src={selectedElement.photoUrl} alt="photo before ice cream" /> */}
+          </div>
         </div>
       )}
     </div>

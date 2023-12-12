@@ -16,7 +16,7 @@ export default function Home() {
   // ダミーデータ, あとで変更する
   const iceCellData: IceCellDataProps[] = [
     {
-      name: 'Ice Cream 1',
+      name: '味の名前',
       color: '#B8E1ED',
       photoUrl: 'https://example.com/icecream1.jpg',
       dateAdded: new Date(),

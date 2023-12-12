@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: center; /* 左右中央に寄せる */
+}
+
+.photo {
+  padding: 4px;
+  margin: 4px;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #c2c2c2;
+  border-right: 1px solid #c2c2c2;
+  box-shadow: 3px 1px 6px 2px #ababab;
+}
+
+.photo_name {
+  padding-top: 8px;
+  padding-left: 6px;
+  font-size: 14px;
+}
