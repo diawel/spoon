@@ -1,6 +1,6 @@
 'use client'
-
 import dynamic from 'next/dynamic'
+import { Zen_Old_Mincho } from 'next/font/google'
 import { useState } from 'react'
 import { iceCellData } from './DummyData'
 import styles from './page.module.css'
@@ -11,6 +11,11 @@ const FridgeView = dynamic(() => import('./components/FridgeView'), {
 })
 const PhotoView = dynamic(() => import('./components/PhotoView'), {
   ssr: false,
+})
+
+const ZenOldMinchoFont = Zen_Old_Mincho({
+  weight: '400',
+  subsets: ['latin'],
 })
 
 export default function Home() {
@@ -28,8 +33,8 @@ export default function Home() {
       </div>
       <div className={styles.fridgeContainer}>
         <div className={styles.dateContainer}>
-          <p className={styles.month}>12</p>
-          <p className={styles.year}>2023</p>
+          <p className={`${styles.month} ${ZenOldMinchoFont.className}`}>12</p>
+          <p className={`${styles.year} ${ZenOldMinchoFont.className}`}>2023</p>
         </div>
         <FridgeView onIceCellTap={handleIceCellTap} historyData={iceCellData} />
       </div>

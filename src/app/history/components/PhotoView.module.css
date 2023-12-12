@@ -3,6 +3,12 @@
   justify-content: center; /* 左右中央に寄せる */
 }
 
+.day {
+  padding-left: 4px;
+  padding-bottom: 2px;
+  color: #545454;
+}
+
 .photo {
   padding: 4px;
   margin: 4px;
@@ -14,7 +20,8 @@
 }
 
 .photo_name {
-  padding-top: 8px;
+  padding-top: 6px;
   padding-left: 6px;
-  font-size: 14px;
+  font-size: 16px;
+  color: #545454;
 }

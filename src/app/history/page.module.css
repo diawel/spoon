@@ -38,11 +38,13 @@
 }
 
 .month {
-  font-size: 17px;
+  font-size: 20px;
+  color: #545454;
 }
 
 .year {
+  font-size: 13px;
+  color: #545454;
   padding-left: 8px;
-  padding-bottom: 1px;
-  font-size: 12px;
+  padding-bottom: 2px;
 }
