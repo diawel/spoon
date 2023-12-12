@@ -4,8 +4,12 @@
   gap: 6px;
   padding-bottom: 1rem;
 
+  overflow-y: auto;
+  max-height: 250px;
+
   /* iPhone SEなど小さいめのスマホ対策 */
-  @media (min-height: 820px) {
+  @media (min-height: 870px) {
     padding-bottom: 3rem;
+    max-height: 380px;
   }
 }
