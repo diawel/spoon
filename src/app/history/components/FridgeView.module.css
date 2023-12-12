@@ -2,5 +2,10 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 6px;
-   padding-bottom: 3rem;
+  padding-bottom: 1rem;
+
+  /* iPhone SEなど小さいめのスマホ対策 */
+  @media (min-height: 820px) {
+    padding-bottom: 3rem;
+  }
 }

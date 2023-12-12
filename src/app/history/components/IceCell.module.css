@@ -1,3 +1,8 @@
 .iceCell {
-  height: 70px;
+  height: 55px;
+
+  /* iPhone SEなど小さいめのスマホ対策 */
+  @media (min-height: 820px) {
+    height: 68px;
+  }
 }
