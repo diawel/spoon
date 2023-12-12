@@ -5,3 +5,21 @@
   align-items: center;
   padding-top: 6rem;
 }
+
+.fridgeView {
+  background-color: #f1f1f1;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+}
+
+.fridgeContainer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+
+  @media (min-width: 480px) {
+    width: 344px;
+  }
+}

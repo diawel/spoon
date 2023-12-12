@@ -1,5 +1,6 @@
 import React from 'react'
 import { IceCellProps } from '../types/IceCellProps'
+import styles from './IceCell.module.css'
 
 const IceCell: React.FC<IceCellProps> = ({ iceCell, onIceCellTap }) => {
   const handleTap = () => {
@@ -8,9 +9,10 @@ const IceCell: React.FC<IceCellProps> = ({ iceCell, onIceCellTap }) => {
 
   return (
     <div onClick={handleTap}>
-      <p>Name: {iceCell.name}</p>
-      <p>Color: {iceCell.color}</p>
-      <p>Date Added: {iceCell.dateAdded.toString()}</p>
+      <div
+        className={styles.iceCell}
+        style={{ backgroundColor: iceCell.color }}
+      ></div>
     </div>
   )
 }

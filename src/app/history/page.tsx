@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
+import { iceCellData } from './DummyData'
 import styles from './page.module.css'
 import { IceCellDataProps } from './types/IceCellDataProps'
 
@@ -13,22 +14,6 @@ const PhotoView = dynamic(() => import('./components/PhotoView'), {
 })
 
 export default function Home() {
-  // ダミーデータ, あとで変更する
-  const iceCellData: IceCellDataProps[] = [
-    {
-      name: '味の名前',
-      color: '#B8E1ED',
-      photoUrl: 'https://example.com/icecream1.jpg',
-      dateAdded: new Date(),
-    },
-    {
-      name: 'Ice Cream 2',
-      color: '#FFAAAA',
-      photoUrl: 'https://example.com/icecream2.jpg',
-      dateAdded: new Date(),
-    },
-  ]
-
   const [selectedElement, setSelectedElement] =
     useState<IceCellDataProps | null>(null)
 
@@ -38,10 +23,11 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      ここは/historyです
       <div>
-        <FridgeView onIceCellTap={handleIceCellTap} historyData={iceCellData} />
         <PhotoView selectedElement={selectedElement} />
+      </div>
+      <div className={styles.fridgeContainer}>
+        <FridgeView onIceCellTap={handleIceCellTap} historyData={iceCellData} />
       </div>
     </main>
   )

@@ -1,0 +1,6 @@
+.fridge {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+   padding-bottom: 3rem;
+}
