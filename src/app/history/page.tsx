@@ -27,6 +27,10 @@ export default function Home() {
         <PhotoView selectedElement={selectedElement} />
       </div>
       <div className={styles.fridgeContainer}>
+        <div className={styles.dateContainer}>
+          <p className={styles.month}>12</p>
+          <p className={styles.year}>2023</p>
+        </div>
         <FridgeView onIceCellTap={handleIceCellTap} historyData={iceCellData} />
       </div>
     </main>
