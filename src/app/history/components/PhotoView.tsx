@@ -17,8 +17,8 @@ const PhotoView: React.FC<PhotoViewProps> = ({ selectedElement }) => {
               <Image
                 className={styles.photo}
                 src="/test.JPG"
-                width={275}
-                height={275}
+                width={290}
+                height={290}
                 alt="photo before ice cream"
               />
               <p className={styles.photo_name}>{selectedElement.name}</p>
