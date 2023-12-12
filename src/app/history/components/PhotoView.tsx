@@ -10,6 +10,10 @@ const PhotoView: React.FC<PhotoViewProps> = ({ selectedElement }) => {
         <div>
           <div className={styles.container}>
             <div>
+              <p className={styles.day}>
+                {selectedElement.dateAdded.getDate()}/
+                {selectedElement.dateAdded.getDate()}
+              </p>
               <Image
                 className={styles.photo}
                 src="/test.JPG"
