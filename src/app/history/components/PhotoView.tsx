@@ -20,11 +20,7 @@ const PhotoView: React.FC<PhotoViewProps> = ({ selectedElement }) => {
       <div>
         <div className={styles.container}></div>
         {selectedElement ? (
-          <div>
-            <p className={`${styles.day} ${ZenOldMinchoFont.className}`}>
-              {selectedElement.dateAdded.getDate()}/
-              {selectedElement.dateAdded.getDate()}
-            </p>
+          <div className={styles.photoContainer}>
             <Image
               className={styles.photo}
               src="/test.JPG"
@@ -32,28 +28,45 @@ const PhotoView: React.FC<PhotoViewProps> = ({ selectedElement }) => {
               height={240}
               alt="photo before ice cream"
             />
+            <div className={styles.photoOverlay}>
+              <p
+                className={`${styles.photo_month} ${KaiseiTokuminFont.className}`}
+              >
+                {selectedElement.dateAdded.getMonth() + 1}月
+              </p>
+              <p
+                className={`${styles.photo_day} ${KaiseiTokuminFont.className}`}
+              >
+                {selectedElement.dateAdded.getDate()}
+              </p>
+            </div>
             <p
-              className={`${styles.photo_name} ${KaiseiTokuminFont.className}`}
+              className={`${styles.flavor_name} ${KaiseiTokuminFont.className}`}
             >
               {selectedElement.name}
             </p>
           </div>
         ) : (
-          <div>
-            <p className={`${styles.day} ${ZenOldMinchoFont.className}`}>
-              No data
-            </p>
+          <div className={styles.photoContainer}>
             <Image
               className={styles.photo}
               src="/hinyari_ebisyuri.png"
               width={240}
               height={240}
-              alt="dummy photo"
+              alt="photo before ice cream"
             />
+            <div className={styles.photoOverlay}>
+              <p
+                className={`${styles.photo_month} ${KaiseiTokuminFont.className}`}
+              ></p>
+              <p
+                className={`${styles.photo_day} ${KaiseiTokuminFont.className}`}
+              ></p>
+            </div>
             <p
               className={`${styles.flavor_name} ${KaiseiTokuminFont.className}`}
             >
-              No data
+              アイスがないよ～
             </p>
           </div>
         )}
