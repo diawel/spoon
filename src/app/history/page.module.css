@@ -6,9 +6,14 @@
   padding: 4px;
 }
 
+.photoViewContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .fridgeContainer {
 }
 
-.tabViewButton {
-  padding-left: 220px;
+.tabViewButtonContainer {
 }

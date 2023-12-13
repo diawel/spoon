@@ -1,7 +1,7 @@
 .fridge {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
+  gap: 4px; 
   overflow-y: scroll;
   height: 285px;
 }

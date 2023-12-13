@@ -4,6 +4,7 @@ import { Zen_Old_Mincho } from 'next/font/google'
 import { useState } from 'react'
 import { iceCellData } from './DummyData'
 
+import TodayIceButton from './components/TodayIceButton'
 import TabViewButton from './components/TabViewButton'
 
 import styles from './page.module.css'
@@ -31,10 +32,13 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <div>
+      <div className={styles.todayIceButton}>
+        <TodayIceButton />
+      </div>
+      <div className={styles.photoViewContainer}>
         <PhotoView selectedElement={selectedElement} />
       </div>
-      <div className={styles.tabViewButton}>
+      <div className={styles.tabViewButtonContainer}>
         <TabViewButton />
       </div>
       <div className={styles.fridgeContainer}>
