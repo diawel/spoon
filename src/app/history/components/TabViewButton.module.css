@@ -9,8 +9,8 @@
 
 .toggleTrack {
   position: relative;
-  width: 80px;
-  height: 24px;
+  width: 76px;
+  height: 17px;
   background-color: #ededed;
   border-radius: 12px;
   transition: background-color 0.3s;
@@ -18,8 +18,8 @@
 
 .toggleHandle {
   position: absolute;
-  width: 46px;
-  height: 24px;
+  width: 39px;
+  height: 17px;
   background-color: #ffaaaa;
   border-radius: 12px;
   transition: transform 0.3s;

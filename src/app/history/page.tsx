@@ -1,11 +1,10 @@
 'use client'
 import dynamic from 'next/dynamic'
-import { Zen_Old_Mincho } from 'next/font/google'
 import { useState } from 'react'
 import { iceCellData } from './DummyData'
 
-import TodayIceButton from './components/TodayIceButton'
 import TabViewButton from './components/TabViewButton'
+import TodayIceButton from './components/TodayIceButton'
 
 import styles from './page.module.css'
 import { IceCellDataProps } from './types/IceCellDataProps'
@@ -15,11 +14,6 @@ const FridgeView = dynamic(() => import('./components/FridgeView'), {
 })
 const PhotoView = dynamic(() => import('./components/PhotoView'), {
   ssr: false,
-})
-
-const ZenOldMinchoFont = Zen_Old_Mincho({
-  weight: '400',
-  subsets: ['latin'],
 })
 
 export default function Home() {
@@ -39,7 +33,9 @@ export default function Home() {
         <PhotoView selectedElement={selectedElement} />
       </div>
       <div className={styles.tabViewButtonContainer}>
-        <TabViewButton />
+        <div className={styles.rightAligned}>
+          <TabViewButton />
+        </div>
       </div>
       <div className={styles.fridgeContainer}>
         <FridgeView onIceCellTap={handleIceCellTap} historyData={iceCellData} />
