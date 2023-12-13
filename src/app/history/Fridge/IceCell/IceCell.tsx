@@ -1,5 +1,5 @@
 import React from 'react'
-import { IceCellProps } from '../types/IceCellProps'
+import { IceCellProps } from '../../utils'
 import styles from './IceCell.module.css'
 
 const IceCell: React.FC<IceCellProps> = ({ iceCell, onIceCellTap }) => {
@@ -11,7 +11,8 @@ const IceCell: React.FC<IceCellProps> = ({ iceCell, onIceCellTap }) => {
     <div onClick={handleTap}>
       <div
         className={styles.iceCell}
-        style={{ backgroundColor: iceCell.color }}
+        // style={{ backgroundColor: iceCell.colors[iceCell.pattern] }}
+        style={{ backgroundColor: 'gray' }}
       ></div>
     </div>
   )

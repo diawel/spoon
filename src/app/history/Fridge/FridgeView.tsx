@@ -1,16 +1,15 @@
-import React from 'react';
-import { FridgeViewProps } from '../types/FridgeViewProps';
-import { IceCellDataProps } from '../types/IceCellDataProps';
-import styles from './FridgeView.module.css';
-import IceCell from './IceCell';
+import React from 'react'
+import { Day, FridgeViewProps } from '../utils'
+import styles from './FridgeView.module.css'
+import IceCell from './IceCell/IceCell'
 
 export const FridgeView: React.FC<FridgeViewProps> = ({
   historyData,
   onIceCellTap,
 }) => {
-  const handleIceCellTapInternal = (element: IceCellDataProps) => {
-    onIceCellTap(element);
-  };
+  const handleIceCellTapInternal = (element: Day) => {
+    onIceCellTap(element)
+  }
 
   return (
     <div className={styles.fridgeContainer}>
@@ -24,7 +23,7 @@ export const FridgeView: React.FC<FridgeViewProps> = ({
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FridgeView;
+export default FridgeView

@@ -1,7 +1,7 @@
 import { Kaisei_Tokumin, Zen_Old_Mincho } from 'next/font/google'
 import Image from 'next/image'
 import React from 'react'
-import { PhotoViewProps } from '../types/PhotoViewProps'
+import { PhotoViewProps } from '../utils'
 import styles from './PhotoView.module.css'
 
 const KaiseiTokuminFont = Kaisei_Tokumin({
@@ -32,18 +32,18 @@ const PhotoView: React.FC<PhotoViewProps> = ({ selectedElement }) => {
               <p
                 className={`${styles.photo_month} ${KaiseiTokuminFont.className}`}
               >
-                {selectedElement.dateAdded.getMonth() + 1}月
+                {selectedElement.date.getMonth() + 1}月
               </p>
               <p
                 className={`${styles.photo_day} ${KaiseiTokuminFont.className}`}
               >
-                {selectedElement.dateAdded.getDate()}
+                {selectedElement.date.getDate()}
               </p>
             </div>
             <p
               className={`${styles.flavor_name} ${KaiseiTokuminFont.className}`}
             >
-              {selectedElement.name}
+              {selectedElement.flavor}
             </p>
           </div>
         ) : (
