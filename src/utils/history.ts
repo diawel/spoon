@@ -2,7 +2,7 @@
 
 import Dexie, { Table } from 'dexie'
 
-export type Day = {
+export type Ice = {
   dateString: string // YYYY-MM-DD
   date: Date
   image: Blob
@@ -12,7 +12,7 @@ export type Day = {
 }
 
 class History extends Dexie {
-  days!: Table<Day>
+  days!: Table<Ice>
 
   constructor() {
     super('History')

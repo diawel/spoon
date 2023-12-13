@@ -3,6 +3,7 @@ import gallery from './gallery.svg'
 import history from './history.svg'
 import Image from 'next/image'
 import Click from '@/components/Click'
+import spoon from './spoon.svg'
 
 export type ControlProps = {
   onCapture: () => void
@@ -13,7 +14,9 @@ const Control: React.FC<ControlProps> = ({ onCapture }) => {
     <div className={styles['container']}>
       <Image src={gallery} alt="gallery" />
       <Click onClick={onCapture}>
-        <div className={styles['shutter']} />
+        <div className={styles['spoon-wrapper']}>
+          <Image src={spoon} alt="spoon" />
+        </div>
       </Click>
       <Image src={history} alt="history" />
     </div>

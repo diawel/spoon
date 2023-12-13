@@ -3,6 +3,8 @@ import { CaptureData } from '..'
 import Control from './Control'
 import Finder from './Finder'
 import styles from './index.module.css'
+import Image from 'next/image'
+import roof from './roof.svg'
 
 export type FinderViewProps = {
   setCaptureData: React.Dispatch<CaptureData>
@@ -110,6 +112,7 @@ const FinderView: React.FC<FinderViewProps> = ({ setCaptureData }) => {
 
   return (
     <div className={styles['container']}>
+      <Image src={roof} alt="roof" />
       <div className={styles['finder-container']}>
         <Finder {...{ videoRef }} />
       </div>

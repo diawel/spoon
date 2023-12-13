@@ -29,7 +29,7 @@ const Finder: React.FC<FinderProps> = ({ videoRef }) => {
       if (videoStreamRef.current)
         videoStreamRef.current.getTracks().forEach((track) => track.stop())
     }
-  }, [])
+  }, [videoRef])
 
   return (
     <video
