@@ -6,11 +6,12 @@
 }
 
 .cream-wrapper {
-  margin-bottom: -30%;
+  margin-bottom: -22%;
   width: 100%;
   aspect-ratio: 1;
 }
 
 .cone {
-  width: 50%;
+  width: 48%;
+  height: auto;
 }
