@@ -2,8 +2,9 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 4px;
+
   overflow-y: scroll;
-  height: 240px;
+  height: 252px;
 }
 
 .fridge::-webkit-scrollbar {

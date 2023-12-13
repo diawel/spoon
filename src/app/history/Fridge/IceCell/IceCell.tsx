@@ -8,12 +8,8 @@ const IceCell: React.FC<IceCellProps> = ({ iceCell, onIceCellTap }) => {
   }
 
   return (
-    <div onClick={handleTap}>
-      <div
-        className={styles.iceCell}
-        // style={{ backgroundColor: iceCell.colors[iceCell.pattern] }}
-        style={{ backgroundColor: 'gray' }}
-      ></div>
+    <div onClick={handleTap} className={styles.iceCellContainer}>
+      <div className={styles.iceCell}></div>
     </div>
   )
 }
