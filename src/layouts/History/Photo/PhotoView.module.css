@@ -1,0 +1,47 @@
+.container {
+  padding-top: 20px;
+}
+
+.photo {
+  padding: 4px;
+  margin: 4px;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #c2c2c2;
+  border-right: 1px solid #c2c2c2;
+  box-shadow: 3px 1px 6px 2px #ababab;
+}
+
+.flavor_name {
+  padding-top: 2px;
+  padding-left: 6px;
+  font-size: 16px;
+  color: #545454;
+}
+
+.photoContainer {
+  position: relative;
+}
+
+.photoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.photo_month,
+.photo_day {
+  display: block;
+  color: #545454;
+}
+
+.photo_month {
+  font-size: 18px;
+  margin-bottom: -10px;
+}
+
+.photo_day {
+  font-size: 32px;
+}

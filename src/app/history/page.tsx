@@ -1,5 +1,3 @@
-import styles from './page.module.css'
+import History from '@/layouts/History'
 
-export default function Home() {
-  return <main className={styles.main}>ここは/historyです</main>
-}
+export default History
