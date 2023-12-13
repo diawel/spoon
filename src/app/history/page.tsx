@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <div className={styles.todayIceButton}>
+      <div className={styles.todayIceButtonContainer}>
         <TodayIceButton />
       </div>
       <div className={styles.photoViewContainer}>

@@ -1,0 +1,8 @@
+.todayIceButton {
+  display: flex;
+  align-items: center;
+}
+
+.arrowIcon {
+  padding-top: 4px;
+}

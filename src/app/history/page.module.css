@@ -6,6 +6,10 @@
   padding: 4px;
 }
 
+.todayIceButtonContainer {
+
+}
+
 .photoViewContainer {
   display: flex;
   justify-content: center;
