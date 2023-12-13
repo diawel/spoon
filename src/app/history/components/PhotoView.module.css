@@ -1,6 +1,5 @@
 .container {
-  display: flex;
-  justify-content: center; /* 左右中央に寄せる */
+  padding-top: 20px;
 }
 
 .day {
@@ -19,7 +18,7 @@
   box-shadow: 3px 1px 6px 2px #ababab;
 }
 
-.photo_name {
+.flavor_name {
   padding-top: 6px;
   padding-left: 6px;
   font-size: 16px;

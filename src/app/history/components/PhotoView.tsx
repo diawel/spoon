@@ -17,54 +17,47 @@ const ZenOldMinchoFont = Zen_Old_Mincho({
 const PhotoView: React.FC<PhotoViewProps> = ({ selectedElement }) => {
   return (
     <div>
-      {selectedElement ? (
-        <div>
-          <div className={styles.container}>
-            <div>
-              <p className={`${styles.day} ${ZenOldMinchoFont.className}`}>
-                {selectedElement.dateAdded.getDate()}/
-                {selectedElement.dateAdded.getDate()}
-              </p>
-              <Image
-                className={styles.photo}
-                src="/test.JPG"
-                width={290}
-                height={290}
-                alt="photo before ice cream"
-              />
-              <p
-                className={`${styles.photo_name} ${KaiseiTokuminFont.className}`}
-              >
-                {selectedElement.name}
-              </p>
-            </div>
-            {/* <Image src={selectedElement.photoUrl} alt="photo before ice cream" /> */}
+      <div>
+        <div className={styles.container}></div>
+        {selectedElement ? (
+          <div>
+            <p className={`${styles.day} ${ZenOldMinchoFont.className}`}>
+              {selectedElement.dateAdded.getDate()}/
+              {selectedElement.dateAdded.getDate()}
+            </p>
+            <Image
+              className={styles.photo}
+              src="/test.JPG"
+              width={240}
+              height={240}
+              alt="photo before ice cream"
+            />
+            <p
+              className={`${styles.photo_name} ${KaiseiTokuminFont.className}`}
+            >
+              {selectedElement.name}
+            </p>
           </div>
-        </div>
-      ) : (
-        <div>
-          <div className={styles.container}>
-            <div>
-              <p className={`${styles.day} ${ZenOldMinchoFont.className}`}>
-                No data
-              </p>
-              <Image
-                className={styles.photo}
-                src="/hinyari_ebisyuri.png"
-                width={290}
-                height={290}
-                alt="photo before ice cream"
-              />
-              <p
-                className={`${styles.photo_name} ${KaiseiTokuminFont.className}`}
-              >
-                No data
-              </p>
-            </div>
-            {/* <Image src={selectedElement.photoUrl} alt="photo before ice cream" /> */}
+        ) : (
+          <div>
+            <p className={`${styles.day} ${ZenOldMinchoFont.className}`}>
+              No data
+            </p>
+            <Image
+              className={styles.photo}
+              src="/hinyari_ebisyuri.png"
+              width={240}
+              height={240}
+              alt="dummy photo"
+            />
+            <p
+              className={`${styles.flavor_name} ${KaiseiTokuminFont.className}`}
+            >
+              No data
+            </p>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }

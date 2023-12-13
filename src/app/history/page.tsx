@@ -3,6 +3,9 @@ import dynamic from 'next/dynamic'
 import { Zen_Old_Mincho } from 'next/font/google'
 import { useState } from 'react'
 import { iceCellData } from './DummyData'
+
+import TabViewButton from './components/TabViewButton'
+
 import styles from './page.module.css'
 import { IceCellDataProps } from './types/IceCellDataProps'
 
@@ -31,11 +34,10 @@ export default function Home() {
       <div>
         <PhotoView selectedElement={selectedElement} />
       </div>
+      <div className={styles.tabViewButton}>
+        <TabViewButton />
+      </div>
       <div className={styles.fridgeContainer}>
-        <div className={styles.dateContainer}>
-          <p className={`${styles.month} ${ZenOldMinchoFont.className}`}>12</p>
-          <p className={`${styles.year} ${ZenOldMinchoFont.className}`}>2023</p>
-        </div>
         <FridgeView onIceCellTap={handleIceCellTap} historyData={iceCellData} />
       </div>
     </main>

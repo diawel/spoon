@@ -3,48 +3,19 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
-  padding-top: 1rem;
-
-  /* iPhone SEなど小さいめのスマホ対策 */
-  @media (min-height: 820px) {
-    padding-top: 6rem;
-  }
-}
-
-.fridgeView {
-  background-color: #f1f1f1;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 16px;
 }
 
 .fridgeContainer {
+  width: 100%;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  background-color: #fff;
+  margin-top: auto;
 
   @media (min-width: 480px) {
     width: 344px;
   }
 }
 
-.dateContainer {
-  display: flex;
-  align-items: flex-end;
-  padding-left: 4px;
-  padding-bottom: 1rem;
-}
-
-.month {
-  font-size: 20px;
-  color: #545454;
-}
-
-.year {
-  font-size: 13px;
-  color: #545454;
-  padding-left: 8px;
-  padding-bottom: 2px;
+.tabViewButton {
+  padding-left: 220px;
 }
