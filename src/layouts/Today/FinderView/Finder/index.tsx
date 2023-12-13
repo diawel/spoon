@@ -3,8 +3,11 @@
 import { useEffect, useRef } from 'react'
 import styles from './index.module.css'
 
-const Finder: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement | null>(null)
+export type FinderProps = {
+  videoRef: React.RefObject<HTMLVideoElement>
+}
+
+const Finder: React.FC<FinderProps> = ({ videoRef }) => {
   const videoStreamRef = useRef<MediaStream | null>(null)
 
   useEffect(() => {

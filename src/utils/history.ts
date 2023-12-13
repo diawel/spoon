@@ -8,6 +8,7 @@ export type Day = {
   image: Blob
   flavor: string
   colors: { r: number; g: number; b: number }[]
+  pattern: number
 }
 
 class History extends Dexie {

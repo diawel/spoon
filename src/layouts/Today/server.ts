@@ -19,6 +19,7 @@ export const getFlavorName = async (colors: string[]) => {
       },
     ],
     model: 'gpt-3.5-turbo',
+    top_p: 0.5,
   })
 
   return completions.choices[0].message.content ?? ''

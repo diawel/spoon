@@ -3,14 +3,20 @@
 import { useEffect, useState } from 'react'
 import FinderView from './FinderView'
 import { history } from '@/utils/history'
+import ResultView from './ResultView'
+import { get } from 'http'
+import { getFlavorName } from './server'
+
+export type CaptureData = {
+  date: Date
+  image: Blob
+  flavor?: string
+  colors: { r: number; g: number; b: number }[]
+  pattern: number
+}
 
 const Today: React.FC = () => {
-  const [captureData, setCaptureData] = useState<{
-    date: Date
-    image: Blob
-    flavor?: string
-    colors: { r: number; g: number; b: number }[]
-  } | null>(null)
+  const [captureData, setCaptureData] = useState<CaptureData | null>(null)
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
@@ -28,9 +34,27 @@ const Today: React.FC = () => {
       })
   }, [])
 
-  if (!ready) return null
-  if (captureData) return <div>TODO: show capture data</div>
-  return <FinderView />
+  useEffect(() => {
+    if (captureData && !captureData.flavor) {
+      getFlavorName(
+        captureData.colors.map(
+          ({ r, g, b }) =>
+            `#${('0' + r.toString(16)).slice(-2)}${('0' + g.toString(16)).slice(
+              -2
+            )}${('0' + b.toString(16)).slice(-2)}`
+        )
+      ).then((flavor) => {
+        setCaptureData({
+          ...captureData,
+          flavor,
+        })
+      })
+    }
+  }, [captureData])
+
+  if (!ready) return <></>
+  if (captureData) return <ResultView {...{ captureData }} />
+  return <FinderView {...{ setCaptureData }} />
 }
 
 export default Today
