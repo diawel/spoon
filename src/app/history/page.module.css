@@ -17,10 +17,6 @@
   align-items: center;
 }
 
-.tabViewButtonContainer {
-  padding-left: 50px;
-}
-
 .rightAligned {
   display: flex;
   justify-content: flex-end;
