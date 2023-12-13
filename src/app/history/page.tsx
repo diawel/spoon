@@ -1,21 +1,20 @@
 'use client'
 import dynamic from 'next/dynamic'
-import { useState } from 'react'
-// import { iceCellData } from './DummyData'
+import React, { useState } from 'react'
+import TodayIceButton from '../../layouts/Fridge/TodayIceButton/TodayIceButton'
 import { iceCellData } from './Dummy'
-import TodayIceButton from './Fridge/TodayIceButton/TodayIceButton'
 
 import styles from './page.module.css'
 import { Day } from './utils'
 
-const FridgeView = dynamic(() => import('./Fridge/FridgeView'), {
+const FridgeView = dynamic(() => import('../../layouts/Fridge/FridgeView'), {
   ssr: false,
 })
-const PhotoView = dynamic(() => import('./Photo/PhotoView'), {
+const PhotoView = dynamic(() => import('../../layouts/Photo/PhotoView'), {
   ssr: false,
 })
 
-export default function Home() {
+export const Home: React.FC = ({}) => {
   const [selectedElement, setSelectedElement] = useState<Day | null>(null)
   const handleIceCellTap = (element: Day) => {
     setSelectedElement(element)
@@ -35,3 +34,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default Home

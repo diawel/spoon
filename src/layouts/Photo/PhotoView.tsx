@@ -1,15 +1,14 @@
-import { Kaisei_Tokumin, Zen_Old_Mincho } from 'next/font/google'
+import { Kaisei_Tokumin } from 'next/font/google'
 import Image from 'next/image'
 import React from 'react'
-import { PhotoViewProps } from '../utils'
+import { Day } from '../../app/history/utils'
 import styles from './PhotoView.module.css'
 
-const KaiseiTokuminFont = Kaisei_Tokumin({
-  weight: '400',
-  subsets: ['latin'],
-})
+export type PhotoViewProps = {
+  selectedElement: Day | null
+}
 
-const ZenOldMinchoFont = Zen_Old_Mincho({
+const KaiseiTokuminFont = Kaisei_Tokumin({
   weight: '400',
   subsets: ['latin'],
 })
