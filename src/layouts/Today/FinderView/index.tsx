@@ -39,7 +39,7 @@ const FinderView: React.FC<FinderViewProps> = ({ setCaptureData }) => {
 
         let chosenPixels = [] // ランダムに代表を抽出
         const candidates = [...pixels]
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 12; i++) {
           const arrayIndex = Math.floor(Math.random() * candidates.length)
           chosenPixels.push(candidates[arrayIndex])
           candidates.splice(arrayIndex, 1)
@@ -75,7 +75,7 @@ const FinderView: React.FC<FinderViewProps> = ({ setCaptureData }) => {
           }
         }
 
-        const rgbToHsv = (r: number, g: number, b: number) => {
+        const rgbToHsv = ({ r, g, b }: { r: number; g: number; b: number }) => {
           const v = Math.max(r, g, b),
             d = v - Math.min(r, g, b),
             s = v ? d / v : 0,
@@ -91,10 +91,11 @@ const FinderView: React.FC<FinderViewProps> = ({ setCaptureData }) => {
           image: blob,
           colors: chosenPixels
             .sort((a, b) => {
-              const hsvA = rgbToHsv(a[0], a[1], a[2])
-              const hsvB = rgbToHsv(b[0], b[1], b[2])
-              return hsvB.v - hsvB.s - (hsvA.v - hsvA.s)
+              const hsvA = rgbToHsv({ r: a[0], g: a[1], b: a[2] })
+              const hsvB = rgbToHsv({ r: b[0], g: b[1], b: b[2] })
+              return hsvB.v + hsvB.s - (hsvA.v + hsvA.s)
             })
+            .slice(0, 3)
             .map((color) => ({
               r: color[0],
               g: color[1],

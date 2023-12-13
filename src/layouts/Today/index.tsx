@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import FinderView from './FinderView'
 import { history } from '@/utils/history'
 import ResultView from './ResultView'
-import { get } from 'http'
 import { getFlavorName } from './server'
 
 export type CaptureData = {
