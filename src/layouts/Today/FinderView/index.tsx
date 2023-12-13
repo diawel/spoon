@@ -8,9 +8,13 @@ import roof from './roof.svg'
 
 export type FinderViewProps = {
   setCaptureData: React.Dispatch<CaptureData>
+  isAnimating?: boolean
 }
 
-const FinderView: React.FC<FinderViewProps> = ({ setCaptureData }) => {
+const FinderView: React.FC<FinderViewProps> = ({
+  setCaptureData,
+  isAnimating,
+}) => {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const onCapture = () => {
@@ -111,12 +115,16 @@ const FinderView: React.FC<FinderViewProps> = ({ setCaptureData }) => {
   }
 
   return (
-    <div className={styles['container']}>
+    <div
+      className={
+        styles['container'] + (isAnimating ? ` ${styles['slideOut']}` : '')
+      }
+    >
       <Image src={roof} alt="roof" />
       <div className={styles['finder-container']}>
-        <Finder {...{ videoRef }} />
+        <Finder {...{ videoRef, isAnimating }} />
       </div>
-      <Control {...{ onCapture }} />
+      <Control {...{ onCapture, isAnimating }} />
     </div>
   )
 }

@@ -1,3 +1,7 @@
+.container {
+  position: relative;
+}
+
 .video {
   object-fit: cover;
   width: 100%;
@@ -5,4 +9,13 @@
   border-radius: 50%;
   border: solid 12px #dadada;
   box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.16);
+}
+
+.disher {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  mix-blend-mode: screen;
+  transform: scale(2.2) translate(2%, -20%);
 }

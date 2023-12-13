@@ -12,3 +12,21 @@
   width: 100%;
   padding: 16px;
 }
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.slideOut {
+  animation: slideOut 1s 1s ease-in forwards;
+}

@@ -17,6 +17,7 @@ export type CaptureData = {
 const Today: React.FC = () => {
   const [captureData, setCaptureData] = useState<CaptureData | null>(null)
   const [ready, setReady] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
     const now = new Date()
@@ -52,8 +53,16 @@ const Today: React.FC = () => {
   }, [captureData])
 
   if (!ready) return <></>
-  if (captureData) return <ResultView {...{ captureData }} />
-  return <FinderView {...{ setCaptureData }} />
+  if (captureData && !isAnimating) return <ResultView {...{ captureData }} />
+  return (
+    <FinderView
+      setCaptureData={(captureData) => {
+        setCaptureData(captureData)
+        setIsAnimating(true)
+      }}
+      {...{ isAnimating }}
+    />
+  )
 }
 
 export default Today
