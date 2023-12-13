@@ -1,8 +1,8 @@
 import { Kaisei_Tokumin } from 'next/font/google'
 import Image from 'next/image'
 import React from 'react'
-import { Day } from '../../app/history/utils'
 import styles from './PhotoView.module.css'
+import { Day } from '../utils'
 
 export type PhotoViewProps = {
   selectedElement: Day | null

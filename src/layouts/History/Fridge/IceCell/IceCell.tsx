@@ -1,5 +1,5 @@
 import React from 'react'
-import { Day } from '../../../app/history/utils'
+import { Day } from '../../utils'
 import styles from './IceCell.module.css'
 
 export type IceCellProps = {

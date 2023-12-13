@@ -1,5 +1,5 @@
 import React from 'react'
-import { Day } from '../../app/history/utils'
+import { Day } from '../utils'
 import styles from './FridgeView.module.css'
 import IceCell from './IceCell/IceCell'
 
