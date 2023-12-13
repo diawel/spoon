@@ -11,17 +11,19 @@ const KaiseiOptiFont = Kaisei_Opti({
 const TodayIceButton: React.FC = () => {
   return (
     <div className={styles.todayIceButton}>
-      <div className={styles.arrowIcon}>
-        <Image
-          src="/left_arrow.svg"
-          alt="Your SVG Image"
-          width={24}
-          height={24}
-        />
-      </div>
-      <p className={`${styles.day} ${KaiseiOptiFont.className}`}>
-        今日のアイス
-      </p>
+      <a href="/">
+        <div className={styles.todayIceButton}>
+          <div className={styles.arrowIcon}>
+            <Image
+              src="/left_arrow.svg"
+              alt="Your SVG Image"
+              width={24}
+              height={24}
+            />
+          </div>
+          <p className={`${KaiseiOptiFont.className}`}>今日のアイス</p>
+        </div>
+      </a>
     </div>
   )
 }
