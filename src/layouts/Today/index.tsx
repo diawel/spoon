@@ -36,23 +36,18 @@ const Today: React.FC = () => {
 
   useEffect(() => {
     if (captureData && !captureData.flavor) {
-      // getFlavorName(
-      //   captureData.colors.map(
-      //     ({ r, g, b }) =>
-      //       `#${('0' + r.toString(16)).slice(-2)}${('0' + g.toString(16)).slice(
-      //         -2
-      //       )}${('0' + b.toString(16)).slice(-2)}`
-      //   )
-      // ).then((flavor) => {
-      //   setCaptureData({
-      //     ...captureData,
-      //     flavor,
-      //   })
-      // })
-
-      setCaptureData({
-        ...captureData,
-        flavor: 'テスト用',
+      getFlavorName(
+        captureData.colors.map(
+          ({ r, g, b }) =>
+            `#${('0' + r.toString(16)).slice(-2)}${('0' + g.toString(16)).slice(
+              -2
+            )}${('0' + b.toString(16)).slice(-2)}`
+        )
+      ).then((flavor) => {
+        setCaptureData({
+          ...captureData,
+          flavor,
+        })
       })
     }
   }, [captureData])

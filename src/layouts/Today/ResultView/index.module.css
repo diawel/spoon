@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  animation: blurIn 0.8s 1.6s ease-out backwards;
+  animation: blurIn 0.8s ease-out backwards;
 }
 
 @keyframes slideIn {
