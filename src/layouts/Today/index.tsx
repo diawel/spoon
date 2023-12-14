@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import FinderView from './FinderView'
-import { history } from '@/utils/history'
+import { dateToDbDate, history } from '@/utils/history'
 import ResultView from './ResultView'
 import { getFlavorName } from './server'
 
@@ -20,18 +20,11 @@ const Today: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
-    const now = new Date()
-    history.days
-      .get(
-        `${now.getFullYear()}-${(now.getMonth() + 1)
-          .toString()
-          .padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`
-      )
-      .then((today) => {
-        if (today) setCaptureData(today)
-        else setCaptureData(null)
-        setReady(true)
-      })
+    history.days.get(dateToDbDate(new Date())).then((today) => {
+      if (today) setCaptureData(today)
+      else setCaptureData(null)
+      setReady(true)
+    })
   }, [])
 
   useEffect(() => {
@@ -46,6 +39,11 @@ const Today: React.FC = () => {
       ).then((flavor) => {
         setCaptureData({
           ...captureData,
+          flavor,
+        })
+        history.days.put({
+          ...captureData,
+          dateString: dateToDbDate(captureData.date),
           flavor,
         })
       })
