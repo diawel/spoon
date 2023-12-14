@@ -22,7 +22,7 @@
   transform: scale(2.2) translate(2%, -20%);
 }
 
-.empty-wrapper {
+.overlay-wrapper {
   position: absolute;
   bottom: 0;
   left: 0;

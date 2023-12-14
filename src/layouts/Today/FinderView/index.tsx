@@ -8,11 +8,13 @@ import roof from './roof.svg'
 
 export type FinderViewProps = {
   setCaptureData: React.Dispatch<CaptureData>
+  image?: Blob
   isAnimating?: boolean
 }
 
 const FinderView: React.FC<FinderViewProps> = ({
   setCaptureData,
+  image,
   isAnimating,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -126,8 +128,9 @@ const FinderView: React.FC<FinderViewProps> = ({
     const image = document.createElement('img')
     image.onload = () => {
       const canvas = document.createElement('canvas')
-      canvas.width = Math.floor(image.width / 10)
-      canvas.height = Math.floor(image.height / 10)
+      let scale = Math.max(image.width, image.height) / 512
+      canvas.width = Math.floor(image.width / scale)
+      canvas.height = Math.floor(image.height / scale)
       const context = canvas.getContext('2d')
       if (!context) return
 
@@ -158,7 +161,7 @@ const FinderView: React.FC<FinderViewProps> = ({
       </div>
       <div className={styles['finder-container']}>
         <div className={styles['finder-innerContainer']}>
-          <Finder {...{ videoRef, isAnimating }} />
+          <Finder {...{ videoRef, image, isAnimating }} />
         </div>
       </div>
       <Control {...{ onCapture, loadFile, isAnimating }} />

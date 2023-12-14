@@ -68,6 +68,7 @@ const Today: React.FC = () => {
           setIsAnimating(false)
         }, 2000)
       }}
+      image={captureData?.image}
       {...{ isAnimating }}
     />
   )
