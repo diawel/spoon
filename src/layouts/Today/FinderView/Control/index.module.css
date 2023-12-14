@@ -28,3 +28,11 @@
 .spoon-slideOut {
   animation: slideOut 1s ease-in forwards;
 }
+
+.input {
+  display: none;
+}
+
+.input-label {
+  cursor: pointer;
+}

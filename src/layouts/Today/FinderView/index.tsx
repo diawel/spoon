@@ -17,17 +17,18 @@ const FinderView: React.FC<FinderViewProps> = ({
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  const onCapture = () => {
-    const video = videoRef.current
-    if (!video) return
-
+  const processImage = (
+    source: HTMLImageElement | HTMLVideoElement | HTMLCanvasElement,
+    width: number,
+    height: number
+  ) => {
     const canvas = document.createElement('canvas')
-    canvas.width = video.videoWidth
-    canvas.height = video.videoHeight
+    canvas.width = width
+    canvas.height = height
     const context = canvas.getContext('2d')
     if (!context) return
 
-    context.drawImage(video, 0, 0, canvas.width, canvas.height)
+    context.drawImage(source, 0, 0, canvas.width, canvas.height)
     canvas.toBlob((blob) => {
       if (!blob) return
       const extractColors = async () => {
@@ -114,6 +115,38 @@ const FinderView: React.FC<FinderViewProps> = ({
     })
   }
 
+  const onCapture = () => {
+    const video = videoRef.current
+    if (!video) return
+
+    processImage(video, video.videoWidth, video.videoHeight)
+  }
+
+  const loadFile = (file: File) => {
+    const image = document.createElement('img')
+    image.onload = () => {
+      const canvas = document.createElement('canvas')
+      canvas.width = Math.floor(image.width / 10)
+      canvas.height = Math.floor(image.height / 10)
+      const context = canvas.getContext('2d')
+      if (!context) return
+
+      context.drawImage(
+        image,
+        0,
+        0,
+        image.width,
+        image.height,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      )
+      processImage(canvas, canvas.width, canvas.height)
+    }
+    image.src = URL.createObjectURL(file)
+  }
+
   return (
     <div
       className={
@@ -128,7 +161,7 @@ const FinderView: React.FC<FinderViewProps> = ({
           <Finder {...{ videoRef, isAnimating }} />
         </div>
       </div>
-      <Control {...{ onCapture, isAnimating }} />
+      <Control {...{ onCapture, loadFile, isAnimating }} />
     </div>
   )
 }
