@@ -1,7 +1,7 @@
-import { Day } from './utils'
+import { Ice } from '@/utils/history'
 
 // ダミーデータ, あとで変更する
-export const iceCellData: Day[] = [
+export const iceCellData: Ice[] = [
   {
     dateString: '2023-12-14',
     date: new Date(),
