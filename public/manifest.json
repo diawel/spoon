@@ -2,7 +2,7 @@
     "theme_color": "#f5f5f5",
     "background_color": "#f5f5f5",
     "display": "standalone",
-    "orientation": "portrait-primary",
+    "orientation": "any",
     "scope": "/",
     "start_url": "/",
     "name": "Spoon",
