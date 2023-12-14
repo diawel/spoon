@@ -1,7 +1,7 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Kaisei_Opti } from 'next/font/google'
-import styles from './layout.module.css'
 import './globals.css'
+import styles from './layout.module.css'
 
 const KaiseiOptiFont = Kaisei_Opti({
   weight: '700',
@@ -14,10 +14,15 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: 'Spoon',
   },
-  icons: {
-    icon: '/icon.png',
-    apple: '/apple-icon.png',
-  },
+  manifest: '/manifest.json',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#f5f5f5',
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  userScalable: false,
 }
 
 export default function RootLayout({

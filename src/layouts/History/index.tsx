@@ -29,6 +29,7 @@ const History: React.FC = () => {
       <div className={styles.photoViewContainer}>
         <PhotoView selectedElement={selectedElement} />
       </div>
+
       <div className={styles.fridgeContainer}>
         <FridgeView
           onIceCellTap={handleIceCellTap}

@@ -20,7 +20,7 @@ const Control: React.FC<ControlProps> = ({ onCapture, isAnimating }) => {
         src={gallery}
         alt="gallery"
       />
-      <Click onClick={onCapture}>
+      <Click onClick={isAnimating ? () => {} : onCapture}>
         <div className={styles['spoon-wrapper']}>
           <Image
             className={isAnimating ? styles['spoon-slideOut'] : ''}

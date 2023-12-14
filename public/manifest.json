@@ -1,0 +1,18 @@
+{
+    "theme_color": "#f5f5f5",
+    "background_color": "#f5f5f5",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Spoon",
+    "short_name": "Spoon",
+    "description": "毎日をひんやり記録します。",
+    "icons": [
+        {
+            "src": "/assets/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
