@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 import styles from './index.module.css'
+import disher from './disher.png'
+import Image from 'next/image'
 
 export type FinderProps = {
   videoRef: React.RefObject<HTMLVideoElement>
@@ -44,12 +46,11 @@ const Finder: React.FC<FinderProps> = ({ videoRef, isAnimating }) => {
         playsInline
       />
       {isAnimating && (
-        <video
+        <Image
           className={styles['disher']}
-          autoPlay
-          muted
-          playsInline
-          src="/assets/disher.mov"
+          src={disher}
+          alt="disher"
+          priority
         />
       )}
     </div>
