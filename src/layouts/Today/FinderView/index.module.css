@@ -53,5 +53,6 @@
 }
 
 .roof {
-  width: 100%;
+  width: 150%;
+  transform: translateX(-25%);
 }
