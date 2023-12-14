@@ -45,9 +45,5 @@
   width: 100%;
   height: calc(10% + 30px);
   max-height: 120px;
-  align-items: center;
-}
-
-.roof {
-  height: 300%;
+  align-items: flex-end;
 }
