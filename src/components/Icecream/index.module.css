@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cream-wrapper {
+  margin-bottom: -22%;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.cone {
+  width: 48%;
+  height: auto;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-36px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animated-cream {
+  animation: slideIn 1s 1.2s cubic-bezier(0, 0.6, 0.4, 1) backwards;
+}

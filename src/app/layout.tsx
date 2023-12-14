@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Kaisei_Opti } from 'next/font/google'
 import styles from './layout.module.css'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const KaiseiOptiFont = Kaisei_Opti({
+  weight: '700',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: 'Spoon',
@@ -24,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={`${inter.className} ${styles.container}`}>
+      <body className={`${KaiseiOptiFont.className} ${styles.container}`}>
         <div className={styles.display}>
           <div className={styles.inner}>{children}</div>
         </div>
