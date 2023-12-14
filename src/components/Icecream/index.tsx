@@ -1,6 +1,6 @@
 import Cream, { CreamProps } from './Cream'
-import styles from './index.module.css'
 import cone from './cone.svg'
+import styles from './index.module.css'
 import Image from 'next/image'
 import effect from './effect.png'
 import { useEffect, useState } from 'react'
