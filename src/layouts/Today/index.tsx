@@ -23,7 +23,6 @@ const Today: React.FC = () => {
     history.days
       .get(dateToDbDate(new Date()))
       .then((today: Ice | undefined) => {
-        console.log(today)
         if (today) setCaptureData(today)
         else setCaptureData(null)
         setReady(true)
