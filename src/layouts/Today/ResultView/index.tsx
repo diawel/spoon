@@ -1,28 +1,30 @@
 import styles from './index.module.css'
 import { CaptureData } from '..'
 import Icecream from '@/components/Icecream'
+import stand from './stand.svg'
+import Image from 'next/image'
+import arrow from './arrow.svg'
+import Link from 'next/link'
 
 export type ResultViewProps = {
   captureData: CaptureData
 }
 
 const ResultView: React.FC<ResultViewProps> = ({ captureData }) => {
-  const { date, image, flavor, colors, pattern } = captureData
+  const { flavor, colors, pattern } = captureData
   return (
     <div className={styles['container']}>
-      <div className={styles['colors']}>
-        {colors.map((color, i) => (
-          <div
-            key={i}
-            className={styles['color']}
-            style={{
-              backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})`,
-            }}
-          />
-        ))}
+      <div className={styles['name-container']}>
+        {flavor && <div className={styles['name']}>{flavor}</div>}
       </div>
-      {flavor}
-      <Icecream {...{ pattern, colors }} />
+      <div className={styles['icecream-container']}>
+        <Icecream {...{ pattern, colors }} animate />
+        <Image src={stand} alt="stand" className={styles['stand']} priority />
+      </div>
+      <Link className={styles['history-container']} href="/history">
+        りれきを見る
+        <Image src={arrow} alt="arrow" priority />
+      </Link>
     </div>
   )
 }

@@ -59,6 +59,9 @@ const Today: React.FC = () => {
       setCaptureData={(captureData) => {
         setCaptureData(captureData)
         setIsAnimating(true)
+        setTimeout(() => {
+          setIsAnimating(false)
+        }, 2000)
       }}
       {...{ isAnimating }}
     />
