@@ -13,7 +13,7 @@ export type FinderProps = {
 
 const Finder: React.FC<FinderProps> = ({ videoRef, isAnimating }) => {
   const videoStreamRef = useRef<MediaStream | null>(null)
-  const [isEmpty, setIsEmpty] = useState(false)
+  const [isEmpty, setIsEmpty] = useState(true)
 
   useEffect(() => {
     if (isAnimating) {
@@ -34,6 +34,9 @@ const Finder: React.FC<FinderProps> = ({ videoRef, isAnimating }) => {
       navigator.mediaDevices
         .getUserMedia({ video: { facingMode: 'environment' } })
         .then((stream) => {
+          setTimeout(() => {
+            setIsEmpty(false)
+          }, 1500)
           video.srcObject = stream
           videoStreamRef.current = stream
         })
@@ -47,17 +50,19 @@ const Finder: React.FC<FinderProps> = ({ videoRef, isAnimating }) => {
 
   return (
     <div className={styles['container']}>
-      {isEmpty ? (
+      <video
+        className={styles['video']}
+        ref={videoRef}
+        autoPlay
+        muted
+        playsInline
+      />
+      <div
+        className={styles['empty-wrapper']}
+        style={{ opacity: isEmpty ? 1 : 0 }}
+      >
         <Image className={styles['video']} src={empty} alt="empty" priority />
-      ) : (
-        <video
-          className={styles['video']}
-          ref={videoRef}
-          autoPlay
-          muted
-          playsInline
-        />
-      )}
+      </div>
       {isAnimating && (
         <Image
           className={styles['disher']}
