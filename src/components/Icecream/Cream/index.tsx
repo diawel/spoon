@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './index.module.css'
-import { base, patterns } from './patrs'
+import { patterns } from './patrs'
 
 export type CreamProps = {
   pattern: number
@@ -14,9 +14,9 @@ const Cream: React.FC<CreamProps> = ({ pattern, colors }) => {
   )
   return (
     <div className={styles.container}>
-      <CreamSvg color={rgbList[0]}>{base}</CreamSvg>
-      <CreamSvg color={rgbList[1]}>{patterns[pattern][0]}</CreamSvg>
-      <CreamSvg color={rgbList[2]}>{patterns[pattern][1]}</CreamSvg>
+      <CreamSvg color={rgbList[0]}>{patterns[pattern][0]}</CreamSvg>
+      <CreamSvg color={rgbList[1]}>{patterns[pattern][1]}</CreamSvg>
+      <CreamSvg color={rgbList[2]}>{patterns[pattern][2]}</CreamSvg>
     </div>
   )
 }
