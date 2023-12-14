@@ -48,7 +48,7 @@
   display: flex;
   width: 100%;
   height: calc(10% + 30px);
-  max-height: 120;
+  max-height: 120px;
   align-items: flex-end;
 }
 

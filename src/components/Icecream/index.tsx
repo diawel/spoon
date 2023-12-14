@@ -3,7 +3,7 @@ import styles from './index.module.css'
 import cone from './cone.svg'
 import Image from 'next/image'
 import effect from './effect.png'
-import { use, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export type IcecreamProps = CreamProps & {
   animate?: boolean
