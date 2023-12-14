@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Kaisei_Opti } from 'next/font/google'
-import styles from './layout.module.css'
 import './globals.css'
+import styles from './layout.module.css'
 
 const KaiseiOptiFont = Kaisei_Opti({
   weight: '700',
