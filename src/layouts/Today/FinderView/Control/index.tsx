@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Click from '@/components/Click'
 import spoon from './spoon.svg'
 import commonAnimation from '@/utils/commonAnimation.module.css'
+import Link from 'next/link'
 
 export type ControlProps = {
   onCapture: () => void
@@ -28,11 +29,13 @@ const Control: React.FC<ControlProps> = ({ onCapture, isAnimating }) => {
           />
         </div>
       </Click>
-      <Image
-        className={isAnimating ? commonAnimation['fadeOut'] : ''}
-        src={history}
-        alt="history"
-      />
+      <Link href="/history">
+        <Image
+          className={isAnimating ? commonAnimation['fadeOut'] : ''}
+          src={history}
+          alt="history"
+        />
+      </Link>
     </div>
   )
 }
