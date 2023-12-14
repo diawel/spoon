@@ -48,7 +48,7 @@ const Finder: React.FC<FinderProps> = ({ videoRef, isAnimating }) => {
   return (
     <div className={styles['container']}>
       {isEmpty ? (
-        <Image className={styles['video']} src={empty.src} alt="empty" />
+        <Image className={styles['video']} src={empty} alt="empty" priority />
       ) : (
         <video
           className={styles['video']}
@@ -58,7 +58,6 @@ const Finder: React.FC<FinderProps> = ({ videoRef, isAnimating }) => {
           playsInline
         />
       )}
-
       {isAnimating && (
         <Image
           className={styles['disher']}
