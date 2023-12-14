@@ -14,10 +14,6 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: 'Spoon',
   },
-  icons: {
-    icon: '/icon.png',
-    apple: '/apple-icon.png',
-  },
   manifest: '/manifest.json',
 }
 
