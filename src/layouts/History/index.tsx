@@ -1,11 +1,11 @@
 'use client'
 import React, { useState } from 'react'
+import { iceCellData } from './Dummy'
+import FridgeView from './Fridge/FridgeView'
+import TodayIceButton from './Fridge/TodayIceButton/TodayIceButton'
+import PhotoView from './Photo/PhotoView'
 import styles from './index.module.css'
 import { Day } from './utils'
-import TodayIceButton from './Fridge/TodayIceButton/TodayIceButton'
-import { iceCellData } from './Dummy'
-import PhotoView from './Photo/PhotoView'
-import FridgeView from './Fridge/FridgeView'
 
 const History: React.FC = () => {
   const [selectedElement, setSelectedElement] = useState<Day | null>(null)
@@ -21,6 +21,7 @@ const History: React.FC = () => {
       <div className={styles.photoViewContainer}>
         <PhotoView selectedElement={selectedElement} />
       </div>
+
       <div className={styles.fridgeContainer}>
         <FridgeView onIceCellTap={handleIceCellTap} historyData={iceCellData} />
       </div>

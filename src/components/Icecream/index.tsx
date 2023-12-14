@@ -1,7 +1,7 @@
-import Cream, { CreamProps } from './Cream'
-import styles from './index.module.css'
-import cone from './cone.svg'
 import Image from 'next/image'
+import Cream, { CreamProps } from './Cream'
+import cone from './cone.svg'
+import styles from './index.module.css'
 
 export type IcecreamProps = CreamProps & {
   animate?: boolean
