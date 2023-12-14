@@ -26,6 +26,7 @@ const PhotoView: React.FC<PhotoViewProps> = ({ selectedElement }) => {
               height={240}
               alt="photo before ice cream"
             />
+
             <div className={styles.iceCreamContaner}>
               <Icecream
                 pattern={selectedElement.pattern}
