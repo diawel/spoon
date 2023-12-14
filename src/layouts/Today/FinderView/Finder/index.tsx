@@ -48,8 +48,7 @@ const Finder: React.FC<FinderProps> = ({ videoRef, isAnimating }) => {
   return (
     <div className={styles['container']}>
       {isEmpty ? (
-        // eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element
-        <img className={styles['video']} src={empty.src} />
+        <Image className={styles['video']} src={empty.src} alt="empty" />
       ) : (
         <video
           className={styles['video']}
@@ -66,6 +65,7 @@ const Finder: React.FC<FinderProps> = ({ videoRef, isAnimating }) => {
           src={disher}
           alt="disher"
           priority
+          unoptimized
         />
       )}
     </div>
