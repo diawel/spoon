@@ -121,7 +121,7 @@ const FinderView: React.FC<FinderViewProps> = ({
       }
     >
       <div className={styles['roof-container']}>
-        <Image className={styles['roof']} src={roof} alt="roof" />
+        <Image src={roof} alt="roof" />
       </div>
       <div className={styles['finder-container']}>
         <div className={styles['finder-innerContainer']}>
