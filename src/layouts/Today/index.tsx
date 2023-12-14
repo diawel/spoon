@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import FinderView from './FinderView'
-import { dateToDbDate, history } from '@/utils/history'
+import { Ice, dateToDbDate, history } from '@/utils/history'
 import ResultView from './ResultView'
 import { getFlavorName } from './server'
 
@@ -20,11 +20,14 @@ const Today: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
-    history.days.get(dateToDbDate(new Date())).then((today) => {
-      if (today) setCaptureData(today)
-      else setCaptureData(null)
-      setReady(true)
-    })
+    history.days
+      .get(dateToDbDate(new Date()))
+      .then((today: Ice | undefined) => {
+        console.log(today)
+        if (today) setCaptureData(today)
+        else setCaptureData(null)
+        setReady(true)
+      })
   }, [])
 
   useEffect(() => {

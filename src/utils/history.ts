@@ -17,7 +17,7 @@ class History extends Dexie {
   constructor() {
     super('History')
     this.version(1).stores({
-      days: 'date',
+      days: 'dateString',
     })
   }
 }
