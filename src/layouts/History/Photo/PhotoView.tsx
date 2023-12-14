@@ -2,10 +2,10 @@ import { Kaisei_Tokumin } from 'next/font/google'
 import Image from 'next/image'
 import React from 'react'
 import styles from './PhotoView.module.css'
-import { Day } from '../utils'
+import { Ice } from '@/utils/history'
 
 export type PhotoViewProps = {
-  selectedElement: Day | null
+  selectedElement: Ice | null
 }
 
 const KaiseiTokuminFont = Kaisei_Tokumin({
