@@ -120,7 +120,7 @@ const FinderView: React.FC<FinderViewProps> = ({
         styles['container'] + (isAnimating ? ` ${styles['slideOut']}` : '')
       }
     >
-      <Image src={roof} alt="roof" />
+      <Image className={styles['roof']} src={roof} alt="roof" />
       <div className={styles['finder-container']}>
         <Finder {...{ videoRef, isAnimating }} />
       </div>

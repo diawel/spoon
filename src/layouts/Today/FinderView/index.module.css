@@ -29,3 +29,7 @@
 .slideOut {
   animation: slideOut 1s 1s ease-in forwards;
 }
+
+.roof {
+  width: 100%;
+}
