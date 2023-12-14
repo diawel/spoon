@@ -6,10 +6,10 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'spoon',
+  title: 'Spoon',
   description: '毎日をひんやり記録します。',
   appleWebApp: {
-    title: 'spoon',
+    title: 'Spoon',
   },
   icons: {
     icon: '/icon.png',
