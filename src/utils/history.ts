@@ -17,9 +17,15 @@ class History extends Dexie {
   constructor() {
     super('History')
     this.version(1).stores({
-      days: 'date',
+      days: 'dateString',
     })
   }
 }
 
 export const history = new History()
+
+export const dateToDbDate = (date: Date) => {
+  return `${date.getFullYear()}-${(date.getMonth() + 1)
+    .toString()
+    .padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`
+}

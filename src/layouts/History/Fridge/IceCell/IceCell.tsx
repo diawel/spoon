@@ -1,10 +1,10 @@
 import React from 'react'
-import { Day } from '../../utils'
 import styles from './IceCell.module.css'
+import { Ice } from '@/utils/history'
 
 export type IceCellProps = {
-  iceCell: Day
-  onIceCellTap: (element: Day) => void
+  iceCell: Ice
+  onIceCellTap: (element: Ice) => void
 }
 
 const IceCell: React.FC<IceCellProps> = ({ iceCell, onIceCellTap }) => {

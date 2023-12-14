@@ -1,18 +1,26 @@
 'use client'
+
 import React, { useState } from 'react'
-import { iceCellData } from './Dummy'
-import FridgeView from './Fridge/FridgeView'
+import styles from './index.module.css'
 import TodayIceButton from './Fridge/TodayIceButton/TodayIceButton'
 import PhotoView from './Photo/PhotoView'
-import styles from './index.module.css'
-import { Day } from './utils'
+import FridgeView from './Fridge/FridgeView'
+import { Ice } from '@/utils/history'
+import { useLiveQuery } from 'dexie-react-hooks'
+import { history } from '@/utils/history'
 
 const History: React.FC = () => {
-  const [selectedElement, setSelectedElement] = useState<Day | null>(null)
-  const handleIceCellTap = (element: Day) => {
+  const [selectedElement, setSelectedElement] = useState<Ice | null>(null)
+  const handleIceCellTap = (element: Ice) => {
     setSelectedElement(element)
   }
+  const liveQuery = useLiveQuery(async () => {
+    return {
+      days: await history.days.toArray(),
+    }
+  })
 
+  if (!liveQuery) return <></>
   return (
     <main className={styles.main}>
       <div className={styles.todayIceButtonContainer}>
@@ -23,7 +31,10 @@ const History: React.FC = () => {
       </div>
 
       <div className={styles.fridgeContainer}>
-        <FridgeView onIceCellTap={handleIceCellTap} historyData={iceCellData} />
+        <FridgeView
+          onIceCellTap={handleIceCellTap}
+          historyData={liveQuery.days}
+        />
       </div>
     </main>
   )
