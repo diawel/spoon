@@ -1,0 +1,32 @@
+{
+    "theme_color": "#fff",
+    "background_color": "#fff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Spoon",
+    "short_name": "Spoon",
+    "description": "\u6bce\u65e5\u3092\u3072\u3093\u3084\u308a\u8a18\u9332\u3057\u307e\u3059\u3002",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

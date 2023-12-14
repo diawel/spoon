@@ -27,6 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icon.png"></link>
+      </head>
       <body className={`${KaiseiOptiFont.className} ${styles.container}`}>
         <div className={styles.display}>
           <div className={styles.inner}>{children}</div>
