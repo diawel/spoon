@@ -4,7 +4,8 @@ import Image from 'next/image'
 import React from 'react'
 import styles from './PhotoView.module.css'
 import { Ice } from '@/utils/history'
-        
+
+import { useEffect, useState } from 'react'
 export type PhotoViewProps = {
   selectedElement: Ice | null
 }
@@ -15,6 +16,17 @@ const KaiseiTokuminFont = Kaisei_Tokumin({
 })
 
 const PhotoView: React.FC<PhotoViewProps> = ({ selectedElement }) => {
+  const [src, setSrc] = useState('')
+  useEffect(() => {
+    if (selectedElement) {
+      const reader = new FileReader()
+      reader.onload = () => {
+        setSrc(reader.result as string)
+      }
+      reader.readAsDataURL(selectedElement.image)
+    }
+  }, [selectedElement])
+
   return (
     <div className={styles.container}>
       {selectedElement ? (
@@ -22,7 +34,7 @@ const PhotoView: React.FC<PhotoViewProps> = ({ selectedElement }) => {
           <div className={styles.iceLayout}>
             <Image
               className={styles.photo}
-              src="/test.JPG"
+              src={src}
               width={240}
               height={240}
               alt="photo before ice cream"

@@ -10,6 +10,7 @@
   flex-shrink: 0;
   border: 4px solid #fff;
   box-shadow: 4px 4px 2.5px 0px rgba(171, 171, 171, 0.9);
+  object-fit: cover;
 }
 
 .iceLayout {
