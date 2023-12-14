@@ -16,7 +16,7 @@ const IceCell: React.FC<IceCellProps> = ({ iceCell, onIceCellTap }) => {
     <div onClick={handleTap} className={styles.iceCellContainer}>
       <div className={styles.iceCell}>
         {/* 月全体で最後の月の場合にのみ下の要素を当てる */}
-        <div className={styles.month}>{iceCell.date.getMonth()}月</div>
+        <div className={styles.month}>{iceCell.date.getMonth() + 1}月</div>
       </div>
     </div>
   )
