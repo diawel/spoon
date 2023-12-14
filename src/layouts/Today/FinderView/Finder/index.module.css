@@ -5,6 +5,7 @@
 .video {
   object-fit: cover;
   width: 100%;
+  height: auto;
   aspect-ratio: 1;
   border-radius: 50%;
   border: solid 12px #dadada;
