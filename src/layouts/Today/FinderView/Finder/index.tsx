@@ -20,7 +20,7 @@ const Finder: React.FC<FinderProps> = ({ videoRef, image, isAnimating }) => {
     if (isAnimating) {
       setTimeout(() => {
         setIsEmpty(true)
-      }, 720)
+      }, 1000)
     }
   }, [isAnimating, videoRef])
 
