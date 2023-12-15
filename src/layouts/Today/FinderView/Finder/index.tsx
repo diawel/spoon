@@ -8,19 +8,19 @@ import empty from './empty.png'
 
 export type FinderProps = {
   videoRef: React.RefObject<HTMLVideoElement>
+  image?: Blob
   isAnimating?: boolean
 }
 
-const Finder: React.FC<FinderProps> = ({ videoRef, isAnimating }) => {
+const Finder: React.FC<FinderProps> = ({ videoRef, image, isAnimating }) => {
   const videoStreamRef = useRef<MediaStream | null>(null)
   const [isEmpty, setIsEmpty] = useState(true)
 
   useEffect(() => {
     if (isAnimating) {
-      videoRef.current?.pause()
       setTimeout(() => {
         setIsEmpty(true)
-      }, 720)
+      }, 1000)
     }
   }, [isAnimating, videoRef])
 
@@ -57,8 +57,19 @@ const Finder: React.FC<FinderProps> = ({ videoRef, isAnimating }) => {
         muted
         playsInline
       />
+      {image && (
+        <div className={styles['overlay-wrapper']}>
+          <Image
+            className={styles['video']}
+            src={URL.createObjectURL(image)}
+            alt="empty"
+            width={512}
+            height={512}
+          />
+        </div>
+      )}
       <div
-        className={styles['empty-wrapper']}
+        className={styles['overlay-wrapper']}
         style={{ opacity: isEmpty ? 1 : 0 }}
       >
         <Image className={styles['video']} src={empty} alt="empty" priority />
