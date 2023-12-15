@@ -31,13 +31,14 @@ const Today: React.FC = () => {
 
   useEffect(() => {
     if (captureData && !captureData.flavor) {
+      const rgbToHex = ({ r, g, b }: { r: number; g: number; b: number }) =>
+        `#${('0' + r.toString(16)).slice(-2)}${('0' + g.toString(16)).slice(
+          -2
+        )}${('0' + b.toString(16)).slice(-2)}`
       getFlavorName(
-        captureData.colors.map(
-          ({ r, g, b }) =>
-            `#${('0' + r.toString(16)).slice(-2)}${('0' + g.toString(16)).slice(
-              -2
-            )}${('0' + b.toString(16)).slice(-2)}`
-        )
+        rgbToHex(captureData.colors[0]),
+        rgbToHex(captureData.colors[1]),
+        rgbToHex(captureData.colors[2])
       ).then((flavor) => {
         setCaptureData({
           ...captureData,
