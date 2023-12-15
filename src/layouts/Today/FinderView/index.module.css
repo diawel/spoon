@@ -1,17 +1,27 @@
 .container {
-  display: flex;
   height: 100%;
-  width: 100%;
-  flex-direction: column;
-  justify-content: space-between;
   overflow: hidden;
   background-color: #f5f5f5;
   color: #545454;
 }
 
 .finder-container {
-  width: 100%;
+  max-width: 100%;
+  height: calc(80% - 120px);
   padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.finder-innerContainer {
+  width: fit-content;
+  max-width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes slideOut {
@@ -28,4 +38,12 @@
 
 .slideOut {
   animation: slideOut 1s 1s ease-in forwards;
+}
+
+.roof-container {
+  display: flex;
+  width: 100%;
+  height: calc(10% + 30px);
+  max-height: 120px;
+  align-items: flex-end;
 }

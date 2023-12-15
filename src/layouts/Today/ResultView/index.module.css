@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  animation: blurIn 0.8s 1.6s ease-out backwards;
+  animation: blurIn 0.8s ease-out backwards;
 }
 
 @keyframes slideIn {
@@ -54,10 +54,23 @@
 .stand {
   position: absolute;
   top: 68%;
-  left: 50%;
+  left: 49%;
   transform: translateX(-50%);
-  width: 40%;
+  width: 36%;
   height: auto;
+}
+
+@keyframes addShadow {
+  0% {
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.16));
+  }
+  100% {
+    filter: drop-shadow(5px 3px 0px rgba(0, 0, 0, 0.16));
+  }
+}
+
+.addShadow {
+  animation: addShadow 0.8s ease-in-out forwards;
 }
 
 @keyframes fadeIn {

@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .cream-wrapper {
@@ -29,4 +30,13 @@
 
 .animated-cream {
   animation: slideIn 1s 1.2s cubic-bezier(0, 0.6, 0.4, 1) backwards;
+}
+
+.effect {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0;
+  top: 0;
+  transform: scale(1.6) translateY(-16%);
 }
