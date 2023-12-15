@@ -4,6 +4,7 @@ import './globals.css'
 import styles from './layout.module.css'
 import effect from '@/components/Icecream/effect.png'
 import disher from '@/layouts/Today/FinderView/Finder/disher.png'
+import empty from '@/layouts/Today/FinderView/Finder/empty.png'
 
 const KaiseiOptiFont = Kaisei_Opti({
   weight: '700',
@@ -37,6 +38,7 @@ export default function RootLayout({
       <head>
         <link rel="preload" href={effect.src} as="image" />
         <link rel="preload" href={disher.src} as="image" />
+        <link rel="preload" href={empty.src} as="image" />
       </head>
       <body className={`${KaiseiOptiFont.className} ${styles.container}`}>
         <div className={styles.display}>
