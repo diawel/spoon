@@ -1,6 +1,6 @@
 import styles from './index.module.css'
-import IceCell from './IceCell'
 import { Ice } from '@/utils/history'
+import Cell from './Cell'
 
 type FridgeViewProps = {
   historyData: Ice[]
@@ -18,12 +18,8 @@ export const FridgeView: React.FC<FridgeViewProps> = ({
   return (
     <div className={styles.fridgeContainer}>
       <div className={styles.fridge}>
-        {historyData.map((element, i) => (
-          <IceCell
-            key={i}
-            iceCell={element}
-            onIceCellTap={handleIceCellTapInternal}
-          />
+        {historyData.map((ice) => (
+          <Cell key={ice.dateString} {...{ ice }} />
         ))}
       </div>
     </div>

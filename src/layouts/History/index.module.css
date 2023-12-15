@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 4px;
+  color: #545454
 }
 
 .todayIceButtonContainer {

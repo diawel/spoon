@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import styles from './index.module.css'
-import TodayIceButton from './FridgeView/TodayIceButton'
-import PhotoView from './PhotoView'
-import FridgeView from './FridgeView'
+import TodayIceButton from './Fridge/TodayIceButton'
+import PhotoView from './Photo'
+import FridgeView from './Fridge'
 import { Ice } from '@/utils/history'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { history } from '@/utils/history'
