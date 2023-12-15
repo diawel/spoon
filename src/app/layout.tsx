@@ -40,9 +40,9 @@ export default function RootLayout({
         <link rel="preload" href={disher.src} as="image" />
         <link rel="preload" href={empty.src} as="image" />
       </head>
-      <body className={`${KaiseiOptiFont.className} ${styles.container}`}>
-        <div className={styles.display}>
-          <div className={styles.inner}>{children}</div>
+      <body className={`${KaiseiOptiFont.className} ${styles['container']}`}>
+        <div className={styles['display']}>
+          <div className={styles['inner']}>{children}</div>
         </div>
       </body>
     </html>
