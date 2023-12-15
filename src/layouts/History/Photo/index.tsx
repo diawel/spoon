@@ -15,7 +15,7 @@ const Photo: React.FC<PhotoProps> = ({ selectedIce }) => {
         <div className={styles['innerContainer']}>
           <div className={styles['photo-container']}>
             <Image
-              className={styles.photo}
+              className={styles['photo']}
               src={URL.createObjectURL(selectedIce.image)}
               width={512}
               height={512}

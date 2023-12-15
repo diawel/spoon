@@ -33,7 +33,7 @@ const Cell: React.FC<CellProps> = ({ ice, monthLabel }) => {
     )
   } else {
     return (
-      <div className={styles.container}>
+      <div className={styles['container']}>
         <Image src={empty} alt="empty" className={styles['empty']} />
         {label}
       </div>
