@@ -20,15 +20,13 @@ const Today: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
-    // history.days
-    //   .get(dateToDbDate(new Date()))
-    //   .then((today: Ice | undefined) => {
-    //     if (today) setCaptureData(today)
-    //     else setCaptureData(null)
-    //     setReady(true)
-    //   })
-
-    setReady(true)
+    history.days
+      .get(dateToDbDate(new Date()))
+      .then((today: Ice | undefined) => {
+        if (today) setCaptureData(today)
+        else setCaptureData(null)
+        setReady(true)
+      })
   }, [])
 
   useEffect(() => {
