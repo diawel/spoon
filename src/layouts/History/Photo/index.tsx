@@ -1,6 +1,5 @@
 import Icecream from '@/components/Icecream'
 import Image from 'next/image'
-import React, { useRef } from 'react'
 import styles from './index.module.css'
 import { Ice } from '@/utils/history'
 
