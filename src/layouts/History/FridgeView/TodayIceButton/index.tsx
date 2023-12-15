@@ -1,7 +1,7 @@
 import { Kaisei_Opti } from 'next/font/google'
 import Image from 'next/image'
 import React from 'react'
-import styles from './TodayIceButton.module.css'
+import styles from './index.module.css'
 
 const KaiseiOptiFont = Kaisei_Opti({
   weight: '400',

@@ -1,5 +1,4 @@
-import React from 'react'
-import styles from './IceCell.module.css'
+import styles from './index.module.css'
 import { Ice } from '@/utils/history'
 import { base, patterns } from './parts'
 

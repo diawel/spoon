@@ -2,7 +2,7 @@ import Icecream from '@/components/Icecream'
 import { Kaisei_Tokumin } from 'next/font/google'
 import Image from 'next/image'
 import React from 'react'
-import styles from './PhotoView.module.css'
+import styles from './index.module.css'
 import { Ice } from '@/utils/history'
 
 import { useEffect, useState } from 'react'

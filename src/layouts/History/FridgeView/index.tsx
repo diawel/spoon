@@ -1,6 +1,5 @@
-import React from 'react'
-import styles from './FridgeView.module.css'
-import IceCell from './IceCell/IceCell'
+import styles from './index.module.css'
+import IceCell from './IceCell'
 import { Ice } from '@/utils/history'
 
 type FridgeViewProps = {
