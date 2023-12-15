@@ -1,10 +1,10 @@
 import React from 'react'
-import { Day } from '../../utils'
 import styles from './IceCell.module.css'
+import { Ice } from '@/utils/history'
 
 export type IceCellProps = {
-  iceCell: Day
-  onIceCellTap: (element: Day) => void
+  iceCell: Ice
+  onIceCellTap: (element: Ice) => void
 }
 
 const IceCell: React.FC<IceCellProps> = ({ iceCell, onIceCellTap }) => {
@@ -14,7 +14,10 @@ const IceCell: React.FC<IceCellProps> = ({ iceCell, onIceCellTap }) => {
 
   return (
     <div onClick={handleTap} className={styles.iceCellContainer}>
-      <div className={styles.iceCell}></div>
+      <div className={styles.iceCell}>
+        {/* 月全体で最後の月の場合にのみ下の要素を当てる */}
+        <div className={styles.month}>{iceCell.date.getMonth() + 1}月</div>
+      </div>
     </div>
   )
 }

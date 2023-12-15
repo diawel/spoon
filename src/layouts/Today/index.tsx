@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import FinderView from './FinderView'
-import { history } from '@/utils/history'
+import { Ice, dateToDbDate, history } from '@/utils/history'
 import ResultView from './ResultView'
 import { getFlavorName } from './server'
 
@@ -20,14 +20,9 @@ const Today: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
-    const now = new Date()
     history.days
-      .get(
-        `${now.getFullYear()}-${(now.getMonth() + 1)
-          .toString()
-          .padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`
-      )
-      .then((today) => {
+      .get(dateToDbDate(new Date()))
+      .then((today: Ice | undefined) => {
         if (today) setCaptureData(today)
         else setCaptureData(null)
         setReady(true)
@@ -35,8 +30,30 @@ const Today: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    if (captureData) {
-      if (!captureData.colors) {
+    if (captureData && !captureData.flavor) {
+      if (captureData.colors) {
+        const colors = captureData.colors
+        const rgbToHex = ({ r, g, b }: { r: number; g: number; b: number }) =>
+          `#${('0' + r.toString(16)).slice(-2)}${('0' + g.toString(16)).slice(
+            -2
+          )}${('0' + b.toString(16)).slice(-2)}`
+        getFlavorName(
+          rgbToHex(colors[0]),
+          rgbToHex(colors[1]),
+          rgbToHex(colors[2])
+        ).then((flavor) => {
+          setCaptureData({
+            ...captureData,
+            flavor,
+          })
+          history.days.put({
+            ...captureData,
+            colors,
+            dateString: dateToDbDate(captureData.date),
+            flavor,
+          })
+        })
+      } else {
         const extractColors = async (src: ImageData) => {
           const pixels = []
           for (let x = 0; x < src.width; x += 4) {
@@ -136,20 +153,6 @@ const Today: React.FC = () => {
           canvas.remove()
         }
         image.src = URL.createObjectURL(captureData.image)
-      } else if (!captureData.flavor) {
-        getFlavorName(
-          captureData.colors.map(
-            ({ r, g, b }) =>
-              `#${('0' + r.toString(16)).slice(-2)}${(
-                '0' + g.toString(16)
-              ).slice(-2)}${('0' + b.toString(16)).slice(-2)}`
-          )
-        ).then((flavor) => {
-          setCaptureData({
-            ...captureData,
-            flavor,
-          })
-        })
       }
     }
   }, [captureData])

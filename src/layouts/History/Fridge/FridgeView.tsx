@@ -1,18 +1,18 @@
 import React from 'react'
-import { Day } from '../utils'
 import styles from './FridgeView.module.css'
 import IceCell from './IceCell/IceCell'
+import { Ice } from '@/utils/history'
 
 type FridgeViewProps = {
-  historyData: Day[]
-  onIceCellTap: (element: Day) => void
+  historyData: Ice[]
+  onIceCellTap: (element: Ice) => void
 }
 
 export const FridgeView: React.FC<FridgeViewProps> = ({
   historyData,
   onIceCellTap,
 }) => {
-  const handleIceCellTapInternal = (element: Day) => {
+  const handleIceCellTapInternal = (element: Ice) => {
     onIceCellTap(element)
   }
 
