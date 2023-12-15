@@ -1,16 +1,41 @@
 .container {
+  max-width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerContainer {
+
+  height: fit-content;
+  max-height: 100%;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 32px;
+}
+
+.photo-container {
+  position: relative;
 }
 
 .photo {
-  padding: 4px;
-  margin: 4px;
-  width: 277px;
-  height: 277px;
-  flex-shrink: 0;
-  border: 4px solid #fff;
-  box-shadow: 4px 4px 2.5px 0px rgba(171, 171, 171, 0.9);
   object-fit: cover;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 4px solid #fff;
+  box-shadow: 4px 4px 0px 0px #cecece;
+}
+
+.flavor-container {
+  width: 100%;
+  padding-right: 48px;
 }
 
 .iceLayout {
@@ -29,38 +54,29 @@
   position: relative;
 }
 
-.photoOverlay {
+.overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  padding-top: 10px;
-  padding-left: 40px;
+  top: 8px;
+  left: 16px;
+  text-align: center;
 }
 
-.photo_month,
-.photo_day {
-  display: block;
-  color: #545454;
-}
-
-.photo_month {
+.month {
   font-size: 18px;
   margin-bottom: -10px;
 }
 
-.photo_day {
+.day {
   font-size: 32px;
 }
 
-.iceCreamContaner {
+.icecream-container {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-left: 20px;
-
-  width: 100px;
-  transform: rotate(20deg);
+  bottom: -40px;
+  right: -24px;
+  width: 80px;
+  transform: rotate(25deg);
   flex-shrink: 0;
   fill: #d9d9d9;
-  filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.16));
+  filter: drop-shadow(4px 4px 0px #cdcdcd);
 }

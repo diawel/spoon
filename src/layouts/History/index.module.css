@@ -12,6 +12,7 @@
 
 .photo-container {
   height: 50%;
+  padding-bottom: 32px;
   display: flex;
   justify-content: center;
   align-items: center;

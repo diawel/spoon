@@ -12,9 +12,9 @@ export type PhotoProps = {
 const Photo: React.FC<PhotoProps> = ({ selectedIce }) => {
   if (selectedIce) {
     return (
-      <div className={styles.container}>
-        <div className={styles.photoContainer}>
-          <div className={styles.iceLayout}>
+      <div className={styles['container']}>
+        <div className={styles['innerContainer']}>
+          <div className={styles['photo-container']}>
             <Image
               className={styles.photo}
               src={URL.createObjectURL(selectedIce.image)}
@@ -22,27 +22,17 @@ const Photo: React.FC<PhotoProps> = ({ selectedIce }) => {
               height={512}
               alt="source photo"
             />
-
-            <div className={styles.iceCreamContaner}>
-              <Icecream
-                pattern={selectedIce.pattern}
-                colors={selectedIce.colors}
-              />
-            </div>
-            <div className={styles.photoOverlay}>
-              <p className={styles.photo_month}>
+            <div className={styles['overlay']}>
+              <div className={styles['month']}>
                 {selectedIce.date.getMonth() + 1}月
-              </p>
-              <p className={styles.photo_day}>{selectedIce.date.getDate()}</p>
+              </div>
+              <div className={styles['day']}>{selectedIce.date.getDate()}</div>
             </div>
-            <p className={styles.flavor_name}>{selectedIce.flavor}</p>
+            <div className={styles['icecream-container']}>
+              <Icecream {...selectedIce} />
+            </div>
           </div>
-          <div className={styles.iceCreamContaner}>
-            <Icecream
-              pattern={selectedIce.pattern}
-              colors={selectedIce.colors}
-            />
-          </div>
+          <div className={styles['flavor-container']}>{selectedIce.flavor}</div>
         </div>
       </div>
     )
