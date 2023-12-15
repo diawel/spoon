@@ -23,17 +23,19 @@ const History: React.FC = () => {
 
   useEffect(() => {
     history.days.toArray().then((days) => {
-      const datePointer = new Date(days[0].dateString)
-      const todayString = dateToDbDate(new Date())
       const dayTable: DayTable = []
-      let datePointerString: string
-      while ((datePointerString = dateToDbDate(datePointer)) <= todayString) {
-        const ice = days.find((day) => datePointerString === day.dateString)
-        dayTable.push({
-          date: new Date(datePointer),
-          ice,
-        })
-        datePointer.setDate(datePointer.getDate() + 1)
+      if (days.length) {
+        const datePointer = new Date(days[0].dateString)
+        const todayString = dateToDbDate(new Date())
+        let datePointerString: string
+        while ((datePointerString = dateToDbDate(datePointer)) <= todayString) {
+          const ice = days.find((day) => datePointerString === day.dateString)
+          dayTable.push({
+            date: new Date(datePointer),
+            ice,
+          })
+          datePointer.setDate(datePointer.getDate() + 1)
+        }
       }
       setDayTable(dayTable)
     })
