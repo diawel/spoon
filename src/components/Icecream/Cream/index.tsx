@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './index.module.css'
-import { base, patterns } from './patrs'
+import { base, patterns } from './parts'
 
 export type CreamProps = {
   pattern: number
