@@ -3,7 +3,6 @@ import Image from 'next/image'
 import styles from './index.module.css'
 import { Ice } from '@/utils/history'
 
-import { useEffect, useState } from 'react'
 export type PhotoProps = {
   selectedIce: Ice | null
 }
