@@ -130,17 +130,7 @@ const Today: React.FC = () => {
           const context = canvas.getContext('2d')
           if (!context) return
 
-          context.drawImage(
-            image,
-            0,
-            0,
-            image.width,
-            image.height,
-            0,
-            0,
-            canvas.width,
-            canvas.height
-          )
+          context.drawImage(image, 0, 0, canvas.width, canvas.height)
 
           extractColors(context.getImageData(0, 0, canvas.width, canvas.height))
           canvas.remove()
