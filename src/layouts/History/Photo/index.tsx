@@ -36,7 +36,7 @@ const Photo: React.FC<PhotoProps> = ({ selectedIce }) => {
       </div>
     )
   }
-  return <></>
+  return <div className={styles['container']}>アイスが空っぽ</div>
 }
 
 export default Photo
