@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import { Kaisei_Opti } from 'next/font/google'
 import './globals.css'
 import styles from './layout.module.css'
+import effect from '@/components/Icecream/effect.png'
+import disher from '@/layouts/Today/FinderView/Finder/disher.png'
 
 const KaiseiOptiFont = Kaisei_Opti({
   weight: '700',
@@ -32,6 +34,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
+      <head>
+        <link rel="preload" href={effect.src} as="image" />
+        <link rel="preload" href={disher.src} as="image" />
+      </head>
       <body className={`${KaiseiOptiFont.className} ${styles.container}`}>
         <div className={styles.display}>
           <div className={styles.inner}>{children}</div>
