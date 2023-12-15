@@ -5,7 +5,6 @@ import styles from './index.module.css'
 import Photo from './Photo'
 import Fridge from './Fridge'
 import { Ice, dateToDbDate } from '@/utils/history'
-import { useLiveQuery } from 'dexie-react-hooks'
 import { history } from '@/utils/history'
 import TodayButton from './TodayButton'
 
@@ -15,15 +14,10 @@ const History: React.FC = () => {
   const [dayTable, setDayTable] = useState<DayTable | null>(null)
   const [selectedIce, setSelectedIce] = useState<Ice | null>(null)
 
-  const liveQuery = useLiveQuery(async () => {
-    return {
-      days: await history.days.toArray(),
-    }
-  })
-
   useEffect(() => {
     history.days.toArray().then((days) => {
       const dayTable: DayTable = []
+      let latestIce
       if (days.length) {
         const datePointer = new Date(days[0].dateString)
         const todayString = dateToDbDate(new Date())
@@ -34,10 +28,12 @@ const History: React.FC = () => {
             date: new Date(datePointer),
             ice,
           })
+          if (ice) latestIce = ice
           datePointer.setDate(datePointer.getDate() + 1)
         }
       }
       setDayTable(dayTable)
+      setSelectedIce(latestIce ?? null)
     })
   }, [])
 
@@ -46,13 +42,15 @@ const History: React.FC = () => {
       <div className={styles['todayButton-container']}>
         <TodayButton />
       </div>
-      <div className={styles['photo-container']}>
-        <Photo {...{ selectedIce }} />
-      </div>
       {dayTable && (
-        <div className={styles['fridge-container']}>
-          <Fridge {...{ setSelectedIce, dayTable }} />
-        </div>
+        <>
+          <div className={styles['photo-container']}>
+            <Photo {...{ selectedIce }} />
+          </div>
+          <div className={styles['fridge-container']}>
+            <Fridge {...{ setSelectedIce, dayTable }} />
+          </div>
+        </>
       )}
     </div>
   )
