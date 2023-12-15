@@ -15,6 +15,7 @@ const ResultView: React.FC<ResultViewProps> = ({ captureData }) => {
   const { flavor, colors, pattern } = captureData
   const initialTime = useRef<number>(Date.now())
 
+  const nameDelay = Math.max(0, 1600 - (Date.now() - initialTime.current))
   return (
     <div className={styles['container']}>
       <div className={styles['name-container']}>
@@ -22,10 +23,7 @@ const ResultView: React.FC<ResultViewProps> = ({ captureData }) => {
           <div
             className={styles['name']}
             style={{
-              animationDelay: `${Math.max(
-                0,
-                1600 - (Date.now() - initialTime.current)
-              )}ms`,
+              animationDelay: `${nameDelay}ms`,
             }}
           >
             {flavor}
@@ -33,8 +31,15 @@ const ResultView: React.FC<ResultViewProps> = ({ captureData }) => {
         )}
       </div>
       <div className={styles['icecream-container']}>
-        <Icecream {...{ pattern, colors }} animate />
-        <Image src={stand} alt="stand" className={styles['stand']} priority />
+        <div
+          className={captureData.flavor ? styles['addShadow'] : ''}
+          style={{
+            animationDelay: `${nameDelay + 500}ms`,
+          }}
+        >
+          <Icecream {...{ pattern, colors }} animate />
+          <Image src={stand} alt="stand" className={styles['stand']} priority />
+        </div>
       </div>
       <Link className={styles['history-container']} href="/history">
         りれきを見る
