@@ -8,14 +8,13 @@ import Link from 'next/link'
 import { useRef } from 'react'
 
 export type ResultViewProps = {
-  captureData: CaptureData
+  captureData: CaptureData & { colors: { r: number; g: number; b: number }[] }
 }
 
 const ResultView: React.FC<ResultViewProps> = ({ captureData }) => {
   const { flavor, colors, pattern } = captureData
   const initialTime = useRef<number>(Date.now())
 
-  if (!colors) return <></>
   return (
     <div className={styles['container']}>
       <div className={styles['name-container']}>

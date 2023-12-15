@@ -155,7 +155,12 @@ const Today: React.FC = () => {
   }, [captureData])
 
   if (!ready) return <></>
-  if (captureData && !isAnimating) return <ResultView {...{ captureData }} />
+  if (captureData?.colors && !isAnimating)
+    return (
+      <ResultView
+        captureData={{ ...captureData, colors: captureData.colors }}
+      />
+    )
   return (
     <FinderView
       setCaptureData={(captureData) => {
@@ -163,7 +168,7 @@ const Today: React.FC = () => {
         setIsAnimating(true)
         setTimeout(() => {
           setIsAnimating(false)
-        }, 2000)
+        }, 2400)
       }}
       image={captureData?.image}
       {...{ isAnimating }}
