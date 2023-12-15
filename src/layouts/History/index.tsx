@@ -1,42 +1,58 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './index.module.css'
-import TodayIceButton from './Fridge/TodayIceButton'
-import PhotoView from './Photo'
-import FridgeView from './Fridge'
-import { Ice } from '@/utils/history'
+import Photo from './Photo'
+import Fridge from './Fridge'
+import { Ice, dateToDbDate } from '@/utils/history'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { history } from '@/utils/history'
+import TodayButton from './TodayButton'
+
+export type DayTable = { date: Date; ice?: Ice }[]
 
 const History: React.FC = () => {
-  const [selectedElement, setSelectedElement] = useState<Ice | null>(null)
-  const handleIceCellTap = (element: Ice) => {
-    setSelectedElement(element)
-  }
+  const [dayTable, setDayTable] = useState<DayTable | null>(null)
+  const [selectedIce, setSelectedIce] = useState<Ice | null>(null)
+
   const liveQuery = useLiveQuery(async () => {
     return {
       days: await history.days.toArray(),
     }
   })
 
-  if (!liveQuery) return <></>
-  return (
-    <main className={styles.main}>
-      <div className={styles.todayIceButtonContainer}>
-        <TodayIceButton />
-      </div>
-      <div className={styles.photoViewContainer}>
-        <PhotoView selectedElement={selectedElement} />
-      </div>
+  useEffect(() => {
+    history.days.toArray().then((days) => {
+      const datePointer = new Date(days[0].dateString)
+      const todayString = dateToDbDate(new Date())
+      const dayTable: DayTable = []
+      let datePointerString: string
+      while ((datePointerString = dateToDbDate(datePointer)) <= todayString) {
+        const ice = days.find((day) => datePointerString === day.dateString)
+        dayTable.push({
+          date: new Date(datePointer),
+          ice,
+        })
+        datePointer.setDate(datePointer.getDate() + 1)
+      }
+      setDayTable(dayTable)
+    })
+  }, [])
 
-      <div className={styles.fridgeContainer}>
-        <FridgeView
-          onIceCellTap={handleIceCellTap}
-          historyData={liveQuery.days}
-        />
+  return (
+    <div className={styles['container']}>
+      <div className={styles['todayButton-container']}>
+        <TodayButton />
       </div>
-    </main>
+      <div className={styles['photo-container']}>
+        <Photo {...{ selectedIce }} />
+      </div>
+      {dayTable && (
+        <div className={styles['fridge-container']}>
+          <Fridge {...{ setSelectedIce, dayTable }} />
+        </div>
+      )}
+    </div>
   )
 }
 

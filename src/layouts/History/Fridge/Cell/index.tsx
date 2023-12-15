@@ -6,9 +6,15 @@ import empty from './empty.svg'
 
 export type CellProps = {
   ice?: Ice
+  monthLabel?: number
 }
 
-const Cell: React.FC<CellProps> = ({ ice }) => {
+const Cell: React.FC<CellProps> = ({ ice, monthLabel }) => {
+  const label = monthLabel ? (
+    <div className={styles['monthLabel']}>{monthLabel}月</div>
+  ) : (
+    ''
+  )
   if (ice) {
     const { pattern, colors } = ice
     const rgbList = colors.map(
@@ -22,12 +28,14 @@ const Cell: React.FC<CellProps> = ({ ice }) => {
             {patterns[pattern][index]}
           </CellSvg>
         ))}
+        {label}
       </div>
     )
   } else {
     return (
       <div className={styles.container}>
-        <Image src={empty} alt="empty" />
+        <Image src={empty} alt="empty" className={styles['empty']} />
+        {label}
       </div>
     )
   }

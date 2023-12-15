@@ -3,7 +3,7 @@ import styles from './index.module.css'
 import arrow from './arrow.svg'
 import Link from 'next/link'
 
-const TodayIceButton: React.FC = () => {
+const TodayButton: React.FC = () => {
   return (
     <Link href="/">
       <div className={styles['container']}>
@@ -14,4 +14,4 @@ const TodayIceButton: React.FC = () => {
   )
 }
 
-export default TodayIceButton
+export default TodayButton

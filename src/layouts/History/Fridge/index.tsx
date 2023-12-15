@@ -1,29 +1,35 @@
 import styles from './index.module.css'
-import { Ice } from '@/utils/history'
+import { Ice, dateToDbDate } from '@/utils/history'
 import Cell from './Cell'
+import { DayTable } from '..'
+import Click from '@/components/Click'
 
-type FridgeViewProps = {
-  historyData: Ice[]
-  onIceCellTap: (element: Ice) => void
+type FridgeProps = {
+  dayTable: DayTable
+  setSelectedIce: React.Dispatch<React.SetStateAction<Ice | null>>
 }
 
-export const FridgeView: React.FC<FridgeViewProps> = ({
-  historyData,
-  onIceCellTap,
-}) => {
-  const handleIceCellTapInternal = (element: Ice) => {
-    onIceCellTap(element)
-  }
-
+export const Fridge: React.FC<FridgeProps> = ({ dayTable, setSelectedIce }) => {
   return (
-    <div className={styles.fridgeContainer}>
-      <div className={styles.fridge}>
-        {historyData.map((ice) => (
-          <Cell key={ice.dateString} {...{ ice }} />
-        ))}
+    <div className={styles['container']}>
+      <div className={styles['grid']}>
+        {dayTable.map((day) => {
+          return (
+            <Click
+              key={dateToDbDate(day.date)}
+              onClick={() => setSelectedIce(day.ice ?? null)}
+            >
+              {day.date.getDate() === 1 ? (
+                <Cell ice={day.ice} monthLabel={day.date.getMonth() + 1} />
+              ) : (
+                <Cell ice={day.ice} />
+              )}
+            </Click>
+          )
+        })}
       </div>
     </div>
   )
 }
 
-export default FridgeView
+export default Fridge
