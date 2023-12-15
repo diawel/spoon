@@ -34,7 +34,7 @@ const ResultView: React.FC<ResultViewProps> = ({ captureData }) => {
         <div
           className={captureData.flavor ? styles['addShadow'] : ''}
           style={{
-            animationDelay: `${nameDelay + 500}ms`,
+            animationDelay: `${nameDelay + 1000}ms`,
           }}
         >
           <Icecream {...{ pattern, colors }} animate />
