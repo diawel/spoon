@@ -40,6 +40,7 @@ const Control: React.FC<ControlProps> = ({
           className={isAnimating ? commonAnimation['fadeOut'] : ''}
           src={gallery}
           alt="gallery"
+          priority
         />
       </label>
       <Click onClick={isAnimating ? () => {} : onCapture}>
@@ -48,6 +49,7 @@ const Control: React.FC<ControlProps> = ({
             className={isAnimating ? styles['spoon-slideOut'] : ''}
             src={spoon}
             alt="spoon"
+            priority
           />
         </div>
       </Click>
@@ -56,6 +58,7 @@ const Control: React.FC<ControlProps> = ({
           className={isAnimating ? commonAnimation['fadeOut'] : ''}
           src={history}
           alt="history"
+          priority
         />
       </Link>
     </div>
