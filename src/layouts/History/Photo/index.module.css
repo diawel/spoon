@@ -8,7 +8,6 @@
 
 .innerContainer {
   height: fit-content;
-  max-height: 100%;
   width: 100%;
   aspect-ratio: 1;
   display: flex;
@@ -45,6 +44,7 @@
   text-align: center;
   box-shadow: 0px 0px 48px 24px rgba(255, 255, 255, 0.24);
   background-color: rgba(255, 255, 255, 0.18);
+  color: #000000;
 }
 
 .month {

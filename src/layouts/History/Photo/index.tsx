@@ -2,16 +2,36 @@ import Icecream from '@/components/Icecream'
 import Image from 'next/image'
 import styles from './index.module.css'
 import { Ice } from '@/utils/history'
+import { useEffect, useState } from 'react'
 
 export type PhotoProps = {
   selectedIce: Ice | null
 }
 
 const Photo: React.FC<PhotoProps> = ({ selectedIce }) => {
+  const [init, setInit] = useState(true)
+  console.log(init)
+  useEffect(() => {
+    if (init) {
+      setTimeout(() => {
+        setInit(false)
+      }, 100)
+    }
+  }, [init])
   if (selectedIce) {
     return (
       <div className={styles['container']}>
-        <div className={styles['innerContainer']}>
+        <div
+          className={styles['innerContainer']}
+          style={
+            init
+              ? { opacity: 0 }
+              : {
+                  opacity: 1,
+                  maxHeight: '100%',
+                }
+          }
+        >
           <div className={styles['photo-container']}>
             <Image
               className={styles['photo']}
