@@ -1,0 +1,95 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s 0.1s ease-in-out backwards;
+}
+
+@keyframes init {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 100%;
+  }
+}
+
+.innerContainer-wrapper {
+  animation: init 0.1s ease-in-out backwards;
+  width: 100%;
+  height: 100%;
+}
+
+.innerContainer {
+  height: fit-content;
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 32px;
+}
+
+.photo-container {
+  position: relative;
+
+}
+
+.photo {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 4px solid #fff;
+  box-shadow: 4px 4px 0px 0px #cecece;
+}
+
+.flavor-container {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.overlay {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  text-align: center;
+  box-shadow: 0px 0px 48px 24px rgba(255, 255, 255, 0.24);
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #000000;
+}
+
+.month {
+  font-size: 18px;
+  margin-bottom: -10px;
+}
+
+.day {
+  font-size: 32px;
+}
+
+.icecream-container {
+  position: absolute;
+  bottom: -40px;
+  right: -24px;
+  width: 80px;
+  transform: rotate(25deg);
+  flex-shrink: 0;
+  fill: #d9d9d9;
+  filter: drop-shadow(4px 2px 0px #cdcdcd);
+}
