@@ -1,10 +1,11 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { CaptureData } from '..'
 import Control from './Control'
 import Finder from './Finder'
 import styles from './index.module.css'
 import Image from 'next/image'
 import roof from './roof.svg'
+import Click from '@/components/Click'
 
 export type FinderViewProps = {
   setCaptureData: React.Dispatch<CaptureData>
@@ -18,6 +19,7 @@ const FinderView: React.FC<FinderViewProps> = ({
   isAnimating,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [text, setText] = useState('')
 
   const processImage = (
     source: HTMLImageElement | HTMLVideoElement | HTMLCanvasElement,
@@ -75,6 +77,41 @@ const FinderView: React.FC<FinderViewProps> = ({
     image.src = URL.createObjectURL(file)
   }
 
+  const loadMockFile = () => {
+    const image = document.createElement('img')
+    image.onload = () => {
+      const canvas = document.createElement('canvas')
+      let scale = Math.max(image.width, image.height) / 512
+      canvas.width = Math.floor(image.width / scale)
+      canvas.height = Math.floor(image.height / scale)
+      const context = canvas.getContext('2d')
+      if (!context) return
+
+      context.drawImage(
+        image,
+        0,
+        0,
+        image.width,
+        image.height,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      )
+
+      canvas.toBlob((blob) => {
+        if (!blob) return
+        setCaptureData({
+          date: new Date(text),
+          image: blob,
+          pattern: Math.floor(Math.random() * 5),
+        })
+        canvas.remove()
+      })
+    }
+    image.src = `/mock/${text}.png`
+  }
+
   return (
     <div
       className={
@@ -82,7 +119,15 @@ const FinderView: React.FC<FinderViewProps> = ({
       }
     >
       <div className={styles['roof-container']}>
-        <Image src={roof} alt="roof" priority />
+        <input value={text} onChange={(e) => setText(e.target.value)} />
+        <Click
+          onClick={() => {
+            loadMockFile()
+            setText('')
+          }}
+        >
+          決定
+        </Click>
       </div>
       <div className={styles['finder-container']}>
         <div className={styles['finder-innerContainer']}>
