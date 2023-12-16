@@ -5,6 +5,7 @@ import Finder from './Finder'
 import styles from './index.module.css'
 import Image from 'next/image'
 import roof from './roof.svg'
+import commonAnimation from '@/utils/commonAnimation.module.css'
 
 export type FinderViewProps = {
   setCaptureData: React.Dispatch<CaptureData>
@@ -78,7 +79,8 @@ const FinderView: React.FC<FinderViewProps> = ({
   return (
     <div
       className={
-        styles['container'] + (isAnimating ? ` ${styles['slideOut']}` : '')
+        `${styles['container']} ${commonAnimation['fadeIn']}` +
+        (isAnimating ? ` ${styles['slideOut']}` : '')
       }
     >
       <div className={styles['roof-container']}>
