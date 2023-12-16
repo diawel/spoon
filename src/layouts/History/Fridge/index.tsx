@@ -36,6 +36,7 @@ export const Fridge: React.FC<FridgeProps> = ({
                 setSelectedIce(day.ice ?? null)
                 setWhichIsSelected(index)
               }}
+              plain
             >
               {day.date.getDate() === 1 ? (
                 <Cell

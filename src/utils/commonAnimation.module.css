@@ -9,7 +9,7 @@
 
 .fadeIn {
   animation-name: fadeIn;
-  animation-duration: 0.5s;
+  animation-duration: 0.6s;
   animation-fill-mode: forwards;
 }
 
@@ -24,6 +24,6 @@
 
 .fadeOut {
   animation-name: fadeOut;
-  animation-duration: 0.5s;
+  animation-duration: 0.6s;
   animation-fill-mode: forwards;
 }
