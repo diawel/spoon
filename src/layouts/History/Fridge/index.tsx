@@ -12,7 +12,12 @@ type FridgeProps = {
 export const Fridge: React.FC<FridgeProps> = ({ dayTable, setSelectedIce }) => {
   return (
     <div className={styles['container']}>
-      <div className={styles['grid']}>
+      <div
+        className={styles['grid']}
+        onLoad={(e) => {
+          e.currentTarget.scrollIntoView(false)
+        }}
+      >
         {dayTable.map((day) => {
           return (
             <Click
