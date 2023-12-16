@@ -53,7 +53,7 @@ const FinderView: React.FC<FinderViewProps> = ({
     const image = document.createElement('img')
     image.onload = () => {
       const canvas = document.createElement('canvas')
-      let scale = Math.max(image.width, image.height) / 512
+      let scale = Math.min(image.width, image.height) / 512
       canvas.width = Math.floor(image.width / scale)
       canvas.height = Math.floor(image.height / scale)
       const context = canvas.getContext('2d')
