@@ -11,6 +11,7 @@
   "dependencies": {
     "dexie": "^3.2.4",
     "dexie-react-hooks": "^1.1.7",
+    "framer-motion": "^10.16.16",
     "next": "14.0.4",
     "openai": "^4.20.1",
     "react": "^18",
