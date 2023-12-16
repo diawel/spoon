@@ -29,3 +29,13 @@
   padding: 4px 6px;
   border-top-left-radius: 4px;
 }
+
+.selectedLabel {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 6px;
+  height: 6px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}

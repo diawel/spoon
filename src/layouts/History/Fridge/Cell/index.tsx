@@ -7,14 +7,28 @@ import empty from './empty.svg'
 export type CellProps = {
   ice?: Ice
   monthLabel?: number
+  isSelected: boolean
 }
 
-const Cell: React.FC<CellProps> = ({ ice, monthLabel }) => {
-  const label = monthLabel ? (
-    <div className={styles['monthLabel']}>{monthLabel}月</div>
-  ) : (
-    ''
-  )
+const Cell: React.FC<CellProps> = ({ ice, monthLabel, isSelected }) => {
+  let labels = <></>
+  if (monthLabel) {
+    labels = (
+      <>
+        {labels}
+        <div className={styles['monthLabel']}>{monthLabel}月</div>
+      </>
+    )
+  }
+  if (isSelected) {
+    labels = (
+      <>
+        {labels}
+        <div className={styles['selectedLabel']} />
+      </>
+    )
+  }
+
   if (ice) {
     const { pattern, colors } = ice
     const rgbList = colors.map(
@@ -28,14 +42,14 @@ const Cell: React.FC<CellProps> = ({ ice, monthLabel }) => {
             {patterns[pattern][index]}
           </CellSvg>
         ))}
-        {label}
+        {labels}
       </div>
     )
   } else {
     return (
       <div className={styles['container']}>
         <Image src={empty} alt="empty" className={styles['empty']} priority />
-        {label}
+        {labels}
       </div>
     )
   }

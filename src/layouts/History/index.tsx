@@ -48,7 +48,7 @@ const History: React.FC = () => {
             <Photo {...{ selectedIce }} />
           </div>
           <div className={styles['fridge-container']}>
-            <Fridge {...{ setSelectedIce, dayTable }} />
+            <Fridge {...{ selectedIce, setSelectedIce, dayTable }} />
           </div>
         </>
       )}

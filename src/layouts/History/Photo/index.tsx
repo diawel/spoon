@@ -9,48 +9,35 @@ export type PhotoProps = {
 }
 
 const Photo: React.FC<PhotoProps> = ({ selectedIce }) => {
-  const [init, setInit] = useState(true)
-  console.log(init)
-  useEffect(() => {
-    if (init) {
-      setTimeout(() => {
-        setInit(false)
-      }, 100)
-    }
-  }, [init])
   if (selectedIce) {
     return (
-      <div className={styles['container']}>
-        <div
-          className={styles['innerContainer']}
-          style={
-            init
-              ? { opacity: 0 }
-              : {
-                  opacity: 1,
-                  maxHeight: '100%',
-                }
-          }
-        >
-          <div className={styles['photo-container']}>
-            <Image
-              className={styles['photo']}
-              src={URL.createObjectURL(selectedIce.image)}
-              width={512}
-              height={512}
-              alt="source photo"
-            />
-            <div className={styles['overlay']}>
-              <div className={styles['month']}>
-                {selectedIce.date.getMonth() + 1}月
+      <div className={styles['container']} key={selectedIce.dateString}>
+        <div className={styles['innerContainer-wrapper']}>
+          <div className={styles['innerContainer']}>
+            <div className={styles['photo-container']}>
+              <Image
+                className={styles['photo']}
+                src={URL.createObjectURL(selectedIce.image)}
+                width={512}
+                height={512}
+                alt="source photo"
+              />
+              <div className={styles['overlay']}>
+                <div className={styles['month']}>
+                  {selectedIce.date.getMonth() + 1}月
+                </div>
+                <div className={styles['day']}>
+                  {selectedIce.date.getDate()}
+                </div>
               </div>
-              <div className={styles['day']}>{selectedIce.date.getDate()}</div>
+              <div className={styles['icecream-container']}>
+                <Icecream {...selectedIce} />
+              </div>
             </div>
-            <div className={styles['icecream-container']}>
-              <Icecream {...selectedIce} />
+            <div className={styles['flavor-container']}>
+              {selectedIce.flavor}
             </div>
           </div>
-          <div className={styles['flavor-container']}>{selectedIce.flavor}</div>
         </div>
       </div>
     )
